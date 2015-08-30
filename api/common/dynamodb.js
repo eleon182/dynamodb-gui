@@ -34,7 +34,7 @@ function describeTable(table){
             deferred.reject(err);
         }
         else {
-            deferred.resolve(data);
+            deferred.resolve(data.Table);
         }
     });
     return deferred.promise;
