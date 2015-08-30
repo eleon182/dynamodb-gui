@@ -1,0 +1,139 @@
+body {
+    padding: 20px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.login {
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    font: normal 14px Roboto,arial,sans-serif;
+    .container {
+        padding: 25px;
+        position: fixed;
+    }
+    .form-login {
+        background-color: #EDEDED;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+        border-color: #d2d2d2;
+        border-width: 5px;
+        box-shadow: 0 1px 0 #cfcfcf;
+    }
+    h4 {
+        border: 0 solid #fff;
+        border-bottom-width: 1px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    .form-control {
+        border-radius: 10px;
+    }
+    .wrapper {
+        text-align: center;
+    }
+}
+
+a {
+    color: #00B7FF;
+    cursor: pointer;
+}
+
+p {
+    padding-top: 20px;
+}
+
+.create {
+    padding-bottom: 15px;
+    button {
+        margin-top: 10px;
+    }
+    .environment-select {
+        float: left;
+    }
+    .btn-info {
+        margin-left: 10px;
+        margin-top: 0;
+    }
+}
+
+.answers {
+    font-size: 90%;
+}
+
+.selectAnswers {
+    margin-bottom: 20px;
+}
+
+.answers select {
+    width: 100px;
+    margin: 10px;
+}
+
+.oowAnswers {
+    font-size: 120%;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.tableList {
+    font-size: 70%;
+}
+
+.correct-answer {
+    background-color: lightgreen;
+}
+
+.failReason {
+    white-space: pre;
+}
+
+.wait-label {
+    margin: 15px;
+    padding: 10px;
+    float: right;
+    font-size: 130%;
+}
+
+.service-health-table {
+    td:first-child {
+        font-weight: bold;
+        font-size: 130%;
+    }
+}
+
+.userdb-table {
+    margin-top:15px;
+    td:first-child {
+        //width:13%;
+        font-weight: bold;
+        font-size: 110%;
+    }
+    td button {
+        margin-left: 15px;
+    }
+}
+
+.istanbul {
+    .coverage-summary {
+        display: none;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+}
+
+.nav img {
+    margin-right: 0px;
+}
+
+.userdb .user-list{
+    button {
+        font-size: 130%;
+    }
+}

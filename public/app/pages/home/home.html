@@ -1,0 +1,29 @@
+<div ng-controller='homeCtrl as vm' ng-init="init()">
+
+    <div class="navbar">
+        <div ng-include data-src="'app/shared/views/navigation.html'"></div>
+    </div>
+    <div class="col-xs-3" ng-repeat="(key, stat) in stats">
+        <h2 ng-style="{'background-color':((stat.percent<50) && 'tomato') || 'lightblue'}">{{key.toUpperCase()}}</h2>
+        <table class="table table-striped">
+            <tr>
+                <td>Users</td>
+                <td>{{stat.count}}</td>
+            </tr>
+            <tr>
+                <td>Valid Users</td>
+                <td>{{stat.success}}</td>
+            </tr>
+            <tr>
+                <td>Failed Users</td>
+                <td>{{stat.fail}}</td>
+            </tr>
+            <tr>
+                <td>Success Rate</td>
+                <td ng-style="{'color':((stat.percent<50) && 'red') || 'green'}">{{stat.percent}}%</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row col-xs-12" id="line-graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div ng-if="false" class="row col-xs-12" id="bar-chart" style="min-width: 310px; height: 350px; xmargin: 0 auto"></div>
+</div>

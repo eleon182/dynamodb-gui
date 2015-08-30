@@ -1,0 +1,96 @@
+<div ng-controller='serviceHealthCtrl' ng-init="init()">
+    <div class="navbar">
+        <div ng-include data-src="'app/shared/views/navigation.html'"></div>
+    </div>
+    <div class="create" ng-show="!displayDetails">
+        <div ng-show="wait" class="wait-label label label-warning">Please Wait...</div>
+        <label>Select Environment</label>
+        <div class="input-group col-xs-3">
+            <select ng-change="loadEnv(env)" ng-model="env" class="form-control input-group-addon">
+                <option value="dev">Develop</option>
+                <option value="int">Integration</option>
+                <option value="qa">QA</option>
+                <option value="stg">Stage</option>
+            </select>
+        </div>
+        <div ng-if="serviceList.length > 0">
+            <h3>{{env.toUpperCase()}} Service Health</h3>
+            <table class="table table-striped service-health-table">
+                <tr>
+                    <th>
+                        Service
+                    </th>
+                    <th>
+                        Update Date
+                    </th>
+                    <th>
+                        Count
+                    </th>
+                    <th>
+                        Success
+                    </th>
+                    <th>
+                        Fail
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                </tr>
+                <tr ng-style="{'background-color': ((service.status ==='OK') && 'limegreen') || 'tomato'}" ng-repeat="service in serviceList" class="tableList">
+                    <td style="cursor: pointer" ng-click="showDetails(service)">
+                        {{service.status}}
+                        {{service.service}}
+                    </td>
+                    <td>
+                        {{service.date | dateFilter}}
+                    </td>
+                    <td>
+                        {{service.count}}
+                    </td>
+                    <td>
+                        {{service.success}}
+                    </td>
+                    <td>
+                        {{service.fail}}
+                    </td>
+                    <td>
+                        {{service.username}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div ng-show="displayDetails">
+        <button ng-click="displayDetails = false" class="btn btn-large btn-info">
+            <i class="fa fa-arrow-circle-left"></i>
+        </button>
+        <h3>{{env.toUpperCase()}} - {{details.service}} - Service History</h3>
+        <table class="table table-striped service-health-table">
+            <tr>
+                <th>
+                    Service
+                </th>
+                <th>
+                    Update Date
+                </th>
+                <th>
+                    Username
+                </th>
+            </tr>
+            <tr ng-style="{'background-color': ((detail.status ==='OK') && 'limegreen') || 'tomato'}" ng-repeat="detail in details.list" class="tableList">
+                <td>
+                    {{detail.status}}
+                    {{detail.service}}
+                </td>
+                <td>
+                    {{detail.date | dateFilter}}
+                </td>
+                <td>
+                    {{detail.username}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

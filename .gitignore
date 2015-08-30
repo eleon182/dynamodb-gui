@@ -1,0 +1,4 @@
+nohup.out
+npm-debug*
+node_modules
+libs

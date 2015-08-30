@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navigationCtrl as vm" ng-init="init()">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <header class="navbar-header">
+            <a class="navbar-brand" href="/#/home">
+                <i class="fa fa-wrench"></i> TD-Tools
+            </a>
+        </header>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#/registration">
+                    <i class="fa fa-user-plus"></i> Registration
+                </a>
+            </li>
+            <li>
+                <a href="#/search">
+                    <i class="fa fa-star"></i> Star Users</a>
+            </li>
+            <li>
+                <a href="#/userdb">
+                    <i class="fa fa-users"></i> User Database</a>
+            </li>
+            <li>
+                <a href="#/serviceHealth">
+                    <i class="fa fa-heart"></i> Service Health</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-gears"></i> Options<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#/profile">
+                            <i class="fa fa-cog"></i> My profile </a>
+                    </li>
+                    <li>
+                        <a ng-click="submitSuggestion()">
+                            <i class="fa fa-comment"></i> Suggestions or comments? </a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <a href="#/signedOut">
+                            <i class="fa fa-sign-out"></i> Sign out</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <i class="fa fa-gears"></i> <img src="assets/dancers.png"></a>
+            </li>
+        </ul>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

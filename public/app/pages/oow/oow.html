@@ -1,0 +1,17 @@
+<div ng-controller='oowCtrl as vm' ng-init="init()">
+    <div class="navbar">
+        <div ng-include data-src="'app/shared/views/navigation.html'"></div>
+    </div>
+    <!-- Find answers -->
+    <div class="input-group">
+        <span class="input-group-btn">
+                           <button class="btn btn-primary" type="button" ng-click="getAnswers()">Get OOW Answers</button>
+                                 </span>
+        <input type="text" ng-keypress="($event.which ===13)?getAnswers():0" class="form-control"
+        ng-model="ssn" placeholder="Enter SSN">
+    </div>
+    <div ng-if="answers.length>0">
+        <hr/>
+        <div ng-repeat="answer in answers">{{answer}}</div>
+    </div>
+</div>

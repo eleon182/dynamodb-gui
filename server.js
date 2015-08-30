@@ -9,19 +9,16 @@ var request = require('request');
 var debug = require('debug')('main');
 var app = express();
 
-var api = require('./app');
-var token = require('./app/token');
+var api = require('./api');
 
 console.log('========================================');
 console.log('RUNNING REGISTRATION SERVER');
 console.log('========================================');
+
 // view engine setup
 app.set('views', path.join(__dirname, ''));
 app.set('view engine', 'jade');
 
-app.get('/', function(req, res, next) {
-    res.send('Unknown resource');
-});
 app.use('/api', function(req, res, next) {
     debug('server.js', req.url, req.method);
     next();
@@ -31,7 +28,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use('/api/oauth', api.token);
 app.use('/api/employee', api.employee);
 app.use('/api/version', function(req, res) {
     exec('git log --stat -1', function(error, stdout, stderr) {
@@ -45,48 +41,20 @@ app.use('/api/version', function(req, res) {
     });
 });
 
-// Member section
-app.use('*', function(req, res, next) {
-    debug('server: req.body', req.body);
-    var params = {
-        token: req.headers.authorization
-    };
-    if (!params.token) {
-        res.status(401).json({
-            code: 'invalidToken',
-            description: 'Valid Token Required'
-        });
-    } else {
-        debug('checking token', params, req.headers);
-        token.validate(params).then(function(val) {
-            req.body.employeeUsername = val.username;
-            next();
-        }, function(err) {
-            res.status(401).json({
-                code: 'invalidToken',
-                description: 'Valid Token Required'
-            });
-        });
-    }
-});
-app.use('/api/profile', api.profile);
-app.use('/api/suggestion', api.suggestion);
-app.use('/api/star', api.star);
-app.use('/api/registration', api.registration);
-app.use('/api/users', api.users);
-app.use('/api/logging', api.logging);
-app.use('/api/servicehealth', api.serviceHealth);
+
+// Static files served
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    res.status(404).send('Resource not found');
+    res.sendFile(path.join(__dirname) + '/public/error404.html');
 });
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '4001');
+var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 /**

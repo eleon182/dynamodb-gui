@@ -1,0 +1,26 @@
+{
+  "name": "registration-tools",
+  "version": "1.0.0",
+  "homepage": "https://github.com/eleon182/registration-tools",
+  "authors": [
+    "Esteban Leon"
+  ],
+  "description": "Corvette registration-tools",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "bootstrap": "~3.3.4",
+    "angular-animate": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "bootbox": "~4.4.0",
+    "highcharts": "~4.1.6",
+    "moment": "~2.10.3",
+    "fontawesome": "~4.3.0",
+    "nprogress": "~0.2.0"
+  }
+}

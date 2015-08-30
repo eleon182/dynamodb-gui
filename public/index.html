@@ -1,0 +1,68 @@
+<title>TD-Tools</title>
+<!-- 3rd party libraries-->
+
+<!-- Bootstrap-->
+<script src='libs/jquery/dist/jquery.min.js'></script>
+<script src='libs/bootstrap/dist/js/bootstrap.min.js'></script>
+
+<!-- Angular -->
+<script src='libs/angular/angular.min.js'></script>
+<script src='libs/angular-animate/angular-animate.min.js'></script>
+<script src='libs/angular-route/angular-route.min.js'></script>
+<script src='libs/angular-sanitize/angular-sanitize.min.js'></script>
+
+<!-- Misc -->
+<script src='libs/bootbox/bootbox.js'></script>
+<script src='libs/highcharts/highcharts.js'></script>
+<script src='libs/highcharts/highcharts-3d.js'></script>
+<script src='libs/highcharts/modules/exporting.js'></script>
+<script src='libs/moment/moment.js'></script>
+<script src='libs/nprogress/nprogress.js'></script>
+
+<link rel='stylesheet' type='text/css' href='libs/bootstrap/dist/css/bootstrap-theme.min.css'>
+<link rel='stylesheet' type='text/css' href='libs/bootstrap/dist/css/bootstrap.min.css'>
+<link rel='stylesheet' type='text/css' href='libs/fontawesome/css/font-awesome.min.css'>
+<link rel='stylesheet' type='text/css' href='libs/nprogress/nprogress.css'>
+
+<div ng-app='main'>
+    <div ng-view> </div>
+</div>
+
+<link rel='stylesheet' type='text/css' href='main.css'>
+
+<script src='app/route.js'></script>
+
+<!-- Private Dependencies-->
+
+<!-- Controllers -->
+<script src='app/pages/completeResetPassword/completeResetPasswordCtrl.js'></script>
+<script src='app/pages/forgotPassword/forgotPasswordCtrl.js'></script>
+<script src='app/pages/profile/profileCtrl.js'></script>
+<script src='app/pages/home/homeCtrl.js'></script>
+<script src='app/pages/signedOut/signedOutCtrl.js'></script>
+<script src='app/pages/login/loginCtrl.js'></script>
+<script src='app/pages/oow/oowCtrl.js'></script>
+<script src='app/pages/search/searchCtrl.js'></script>
+<script src='app/pages/registration/registrationCtrl.js'></script>
+<script src='app/pages/completeRegistration/completeRegistrationCtrl.js'></script>
+<script src='app/pages/userdb/userdbCtrl.js'></script>
+<script src='app/pages/serviceHealth/serviceHealthCtrl.js'></script>
+<script src='app/shared/controller/navigationCtrl.js'></script>
+
+<!-- Factories -->
+<script src='app/shared/factory/statCompiler.js'></script>
+
+<!-- Repositories -->
+<script src='app/shared/factory/data/profileRepo.js'></script>
+<script src='app/shared/factory/data/abstractRepo.js'></script>
+<script src='app/shared/factory/data/starRepo.js'></script>
+<script src='app/shared/factory/data/loginRepo.js'></script>
+<script src='app/shared/factory/data/accountRegistrationRepo.js'></script>
+<script src='app/shared/factory/data/registrationRepo.js'></script>
+<script src='app/shared/factory/data/usersRepo.js'></script>
+<script src='app/shared/factory/data/loggingRepo.js'></script>
+<script src='app/shared/factory/data/serviceHealthRepo.js'></script>
+<script src='app/shared/factory/data/suggestionRepo.js'></script>
+
+<!-- Filters -->
+<script src='app/shared/filter/dateFilter.js'></script>
