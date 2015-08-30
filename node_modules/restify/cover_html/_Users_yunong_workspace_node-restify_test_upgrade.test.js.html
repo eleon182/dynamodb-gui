@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/Users/yunong/workspace/node-restify/test/upgrade.test.js -- cover.io</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+      html, body {
+        font-family: georgia, serif;
+      }
+      
+      .content {
+      }
+      table#files-table {
+        table-layout: fixed;
+        width: 94%;
+      }
+
+      table#files-table td, table#files-table th {
+        width: 11%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      table#files-table td:first-child, table#files-table th:first-child {
+        width: 33%;
+      }
+      
+      .partialuncovered { 
+        background: #EE9; 
+      }
+      
+      pre.prettyprint {
+        padding-top: 0em;
+        border: 5px;
+        padding-left: 0em;
+        padding-bottom: 0em;
+        font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+      }
+       
+      span.covered {
+        border-left: 2px solid lime; 
+      }
+      
+      span.uncovered {
+        background: #FDD;
+        border-left: 2px solid red; 
+      }
+      
+      span.partial {
+        border-left: 2px solid #EE9; 
+        background: #FFA;
+      }
+      
+      div.header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EEE;
+        height: 90px;
+        background: #F8F8F8;
+      }
+      
+      div.header-content {
+        padding: 1em 3em;
+      }
+      
+      a.index {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      a.coverio {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      div.content > a.index {
+        padding-left: 1.5em;
+        padding-bottom: 2em;
+      }
+      
+      div.header-content h3 {
+        font-weight: normal;
+      }
+      
+      span.filename {
+        font-weight: bold;
+      }
+      
+      span.percentage {
+        font-weight: bold;
+      }
+      
+      div.stats {
+        font-size: 13px;
+      }
+      
+      div.stats span.separator {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      div.stats span.stat-descriptor {
+        color: gray;
+      }
+      
+      table.code td.text {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .linenos p {
+        text-align: left;
+        margin: 0;
+        padding-right: 0.5em;
+        color: #999999;
+        font-family: verdana, sans-serif;
+        font-size: 0.8em;   /* 12/16 */
+        line-height: 16px;  /* 16/12 */
+      }
+
+      td.text {
+        width: 100%;
+        height: 16px;
+      }
+      
+      td.text pre > span {
+        padding-top: 3px;
+        line-height: 16px;
+      }
+    
+    </style>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="prettify.js"></script>
+    <script >
+    
+      $(function() {
+        $(".linenos p").css("text-align", "right");
+        setTimeout(function() {
+          prettyPrint();
+        });
+      });
+    </script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+      <div class="content">
+        <div class="header">
+          <div class="header-content">
+            <a class="index" href="index.html">« index</a>
+            <h3>Coverage for <span class="filename">/Users/yunong/workspace/node-restify/test/upgrade.test.js</span> : <span class="percentage">88%</span></h3>
+            <div class="stats">
+              413  <span class="stat-descriptor">lines</span>     <span class="separator">| </span> 
+              365  <span class="stat-descriptor">run</span>        <span class="separator">| </span> 
+              48  <span class="stat-descriptor">missing</span>    <span class="separator">| </span> 
+              0  <span class="stat-descriptor">partial</span>      <span class="separator">| </span> 
+              75  <span class="stat-descriptor">blocks</span>     <span class="separator">| </span> 
+              54  <span class="stat-descriptor">blocks run</span>  <span class="separator">| </span> 
+              21  <span class="stat-descriptor">blocks missing</span>
+            </div>
+          </div>
+        </div>
+        <table class="code" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class='linenos' valign='top'><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p><p>45</p><p>46</p><p>47</p><p>48</p><p>49</p><p>50</p><p>51</p><p>52</p><p>53</p><p>54</p><p>55</p><p>56</p><p>57</p><p>58</p><p>59</p><p>60</p><p>61</p><p>62</p><p>63</p><p>64</p><p>65</p><p>66</p><p>67</p><p>68</p><p>69</p><p>70</p><p>71</p><p>72</p><p>73</p><p>74</p><p>75</p><p>76</p><p>77</p><p>78</p><p>79</p><p>80</p><p>81</p><p>82</p><p>83</p><p>84</p><p>85</p><p>86</p><p>87</p><p>88</p><p>89</p><p>90</p><p>91</p><p>92</p><p>93</p><p>94</p><p>95</p><p>96</p><p>97</p><p>98</p><p>99</p><p>100</p><p>101</p><p>102</p><p>103</p><p>104</p><p>105</p><p>106</p><p>107</p><p>108</p><p>109</p><p>110</p><p>111</p><p>112</p><p>113</p><p>114</p><p>115</p><p>116</p><p>117</p><p>118</p><p>119</p><p>120</p><p>121</p><p>122</p><p>123</p><p>124</p><p>125</p><p>126</p><p>127</p><p>128</p><p>129</p><p>130</p><p>131</p><p>132</p><p>133</p><p>134</p><p>135</p><p>136</p><p>137</p><p>138</p><p>139</p><p>140</p><p>141</p><p>142</p><p>143</p><p>144</p><p>145</p><p>146</p><p>147</p><p>148</p><p>149</p><p>150</p><p>151</p><p>152</p><p>153</p><p>154</p><p>155</p><p>156</p><p>157</p><p>158</p><p>159</p><p>160</p><p>161</p><p>162</p><p>163</p><p>164</p><p>165</p><p>166</p><p>167</p><p>168</p><p>169</p><p>170</p><p>171</p><p>172</p><p>173</p><p>174</p><p>175</p><p>176</p><p>177</p><p>178</p><p>179</p><p>180</p><p>181</p><p>182</p><p>183</p><p>184</p><p>185</p><p>186</p><p>187</p><p>188</p><p>189</p><p>190</p><p>191</p><p>192</p><p>193</p><p>194</p><p>195</p><p>196</p><p>197</p><p>198</p><p>199</p><p>200</p><p>201</p><p>202</p><p>203</p><p>204</p><p>205</p><p>206</p><p>207</p><p>208</p><p>209</p><p>210</p><p>211</p><p>212</p><p>213</p><p>214</p><p>215</p><p>216</p><p>217</p><p>218</p><p>219</p><p>220</p><p>221</p><p>222</p><p>223</p><p>224</p><p>225</p><p>226</p><p>227</p><p>228</p><p>229</p><p>230</p><p>231</p><p>232</p><p>233</p><p>234</p><p>235</p><p>236</p><p>237</p><p>238</p><p>239</p><p>240</p><p>241</p><p>242</p><p>243</p><p>244</p><p>245</p><p>246</p><p>247</p><p>248</p><p>249</p><p>250</p><p>251</p><p>252</p><p>253</p><p>254</p><p>255</p><p>256</p><p>257</p><p>258</p><p>259</p><p>260</p><p>261</p><p>262</p><p>263</p><p>264</p><p>265</p><p>266</p><p>267</p><p>268</p><p>269</p><p>270</p><p>271</p><p>272</p><p>273</p><p>274</p><p>275</p><p>276</p><p>277</p><p>278</p><p>279</p><p>280</p><p>281</p><p>282</p><p>283</p><p>284</p><p>285</p><p>286</p><p>287</p><p>288</p><p>289</p><p>290</p><p>291</p><p>292</p><p>293</p><p>294</p><p>295</p><p>296</p><p>297</p><p>298</p><p>299</p><p>300</p><p>301</p><p>302</p><p>303</p><p>304</p><p>305</p><p>306</p><p>307</p><p>308</p><p>309</p><p>310</p><p>311</p><p>312</p><p>313</p><p>314</p><p>315</p><p>316</p><p>317</p><p>318</p><p>319</p><p>320</p><p>321</p><p>322</p><p>323</p><p>324</p><p>325</p><p>326</p><p>327</p><p>328</p><p>329</p><p>330</p><p>331</p><p>332</p><p>333</p><p>334</p><p>335</p><p>336</p><p>337</p><p>338</p><p>339</p><p>340</p><p>341</p><p>342</p><p>343</p><p>344</p><p>345</p><p>346</p><p>347</p><p>348</p><p>349</p><p>350</p><p>351</p><p>352</p><p>353</p><p>354</p><p>355</p><p>356</p><p>357</p><p>358</p><p>359</p><p>360</p><p>361</p><p>362</p><p>363</p><p>364</p><p>365</p><p>366</p><p>367</p><p>368</p><p>369</p><p>370</p><p>371</p><p>372</p><p>373</p><p>374</p><p>375</p><p>376</p><p>377</p><p>378</p><p>379</p><p>380</p><p>381</p><p>382</p><p>383</p><p>384</p><p>385</p><p>386</p><p>387</p><p>388</p><p>389</p><p>390</p><p>391</p><p>392</p><p>393</p><p>394</p><p>395</p><p>396</p><p>397</p><p>398</p><p>399</p><p>400</p><p>401</p><p>402</p><p>403</p><p>404</p><p>405</p><p>406</p><p>407</p><p>408</p><p>409</p><p>410</p><p>411</p><p>412</p><p>413</p></td><td class='text' valign='top'><pre class='prettyprint lang-js'><span class='covered'>  // Copyright (c) 2013, Joyent, Inc. All rights reserved.</span>
+<span class='covered'>  // vim: set ts=8 sts=8 sw=8 et:</span>
+<span class='covered'>  </span>
+<span class='covered'>  var http = require(&#39;http&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var Watershed = require(&#39;watershed&#39;).Watershed;</span>
+<span class='covered'>  </span>
+<span class='covered'>  var HttpError = require(&#39;../lib/errors&#39;).HttpError;</span>
+<span class='covered'>  var RestError = require(&#39;../lib/errors&#39;).RestError;</span>
+<span class='covered'>  var InvalidUpgradeStateError =</span>
+<span class='covered'>      require(&#39;../lib/upgrade&#39;).InvalidUpgradeStateError;</span>
+<span class='covered'>  var restify = require(&#39;../lib&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  if (require.cache[__dirname + &#39;/lib/helper.js&#39;])</span>
+<span class='covered'>      delete require.cache[__dirname + &#39;/lib/helper.js&#39;];</span>
+<span class='covered'>  var helper = require(&#39;./lib/helper.js&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Globals</span>
+<span class='covered'>  </span>
+<span class='covered'>  var after = helper.after;</span>
+<span class='covered'>  var before = helper.before;</span>
+<span class='covered'>  var test = helper.test;</span>
+<span class='covered'>  </span>
+<span class='covered'>  var PORT = process.env.UNIT_TEST_PORT || 0;</span>
+<span class='covered'>  var CLIENT;</span>
+<span class='covered'>  var SERVER;</span>
+<span class='covered'>  var WATERSHED = new Watershed();</span>
+<span class='covered'>  var SHEDLIST = [];</span>
+<span class='covered'>  </span>
+<span class='covered'>  var TIMEOUT = 15000;</span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Test Helper</span>
+<span class='covered'>  </span>
+<span class='covered'>  function</span>
+<span class='covered'>      finish_latch(_test, _names) {</span>
+<span class='covered'>      var complete = false;</span>
+<span class='covered'>      var t = _test;</span>
+<span class='covered'>      var names = _names;</span>
+<span class='covered'>      var iv = setTimeout(function () {</span>
+<span class='uncovered'>          if (complete)</span>
+<span class='uncovered'>              return;</span>
+<span class='covered'>  </span>
+<span class='uncovered'>          complete = true;</span>
+<span class='uncovered'>          t.ok(false, &#39;timeout after &#39; + TIMEOUT + &#39;ms&#39;);</span>
+<span class='uncovered'>          t.ok(false, &#39;remaining latches: &#39; +</span>
+<span class='uncovered'>              Object.keys(names).join(&#39;, &#39;));</span>
+<span class='uncovered'>          t.done();</span>
+<span class='covered'>      }, TIMEOUT);</span>
+<span class='covered'>      return (function (name, err) {</span>
+<span class='covered'>          if (complete)</span>
+<span class='uncovered'>              return;</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (names[name] === undefined) {</span>
+<span class='uncovered'>              complete = true;</span>
+<span class='uncovered'>              t.ok(false, &#39;latch name &quot;&#39; + name +</span>
+<span class='uncovered'>                  &#39;&quot; not expected&#39;);</span>
+<span class='uncovered'>              t.ok(false, &#39;remaining latches: &#39; +</span>
+<span class='uncovered'>                  Object.keys(names).join(&#39;, &#39;));</span>
+<span class='uncovered'>              t.done();</span>
+<span class='uncovered'>              return;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (--names[name] === 0)</span>
+<span class='covered'>              delete names[name];</span>
+<span class='covered'>  </span>
+<span class='covered'>          /*</span>
+<span class='covered'>           * Check that all latch names are done, and if so,</span>
+<span class='covered'>           * end the test:</span>
+<span class='covered'>           */</span>
+<span class='covered'>          if (Object.keys(names).length === 0) {</span>
+<span class='covered'>              complete = true;</span>
+<span class='covered'>              clearTimeout(iv);</span>
+<span class='covered'>              iv = null;</span>
+<span class='covered'>              t.done();</span>
+<span class='covered'>          }</span>
+<span class='covered'>      });</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Tests</span>
+<span class='covered'>  </span>
+<span class='covered'>  before(function (cb) {</span>
+<span class='covered'>      try {</span>
+<span class='covered'>          SERVER = restify.createServer({</span>
+<span class='covered'>              dtrace: helper.dtrace,</span>
+<span class='covered'>              log: helper.getLog(&#39;server&#39;),</span>
+<span class='covered'>              version: [&#39;2.0.0&#39;, &#39;0.5.4&#39;, &#39;1.4.3&#39;],</span>
+<span class='covered'>              handleUpgrades: true</span>
+<span class='covered'>          });</span>
+<span class='covered'>          SERVER.listen(PORT, &#39;127.0.0.1&#39;, function () {</span>
+<span class='covered'>              PORT = SERVER.address().port;</span>
+<span class='covered'>              CLIENT = restify.createHttpClient({</span>
+<span class='covered'>                  url: &#39;http://127.0.0.1:&#39; + PORT,</span>
+<span class='covered'>                  dtrace: helper.dtrace,</span>
+<span class='covered'>                  retry: false</span>
+<span class='covered'>              });</span>
+<span class='covered'>  </span>
+<span class='covered'>              cb();</span>
+<span class='covered'>          });</span>
+<span class='covered'>      } catch (e) {</span>
+<span class='uncovered'>          console.error(e.stack);</span>
+<span class='uncovered'>          process.exit(1);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  });</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  after(function (cb) {</span>
+<span class='covered'>      try {</span>
+<span class='covered'>          CLIENT.close();</span>
+<span class='covered'>          SERVER.close(function () {</span>
+<span class='covered'>              CLIENT = null;</span>
+<span class='covered'>              SERVER = null;</span>
+<span class='covered'>              cb();</span>
+<span class='covered'>          });</span>
+<span class='covered'>          while (SHEDLIST.length &gt; 0) {</span>
+<span class='covered'>              SHEDLIST.pop().destroy();</span>
+<span class='covered'>          }</span>
+<span class='covered'>      } catch (e) {</span>
+<span class='uncovered'>          console.error(e.stack);</span>
+<span class='uncovered'>          process.exit(1);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  });</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  test(&#39;GET without upgrade headers&#39;, function (t) {</span>
+<span class='covered'>      var done = finish_latch(t, {</span>
+<span class='covered'>          &#39;client response&#39;: 1,</span>
+<span class='covered'>          &#39;server response&#39;: 1</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      SERVER.get(&#39;/attach&#39;, function (req, res, next) {</span>
+<span class='covered'>          t.ok(!res.claimUpgrade, &#39;res.claimUpgrade not present&#39;);</span>
+<span class='covered'>          res.send(400);</span>
+<span class='covered'>          next();</span>
+<span class='covered'>          done(&#39;server response&#39;);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var options = {</span>
+<span class='covered'>          headers: {</span>
+<span class='covered'>              &#39;uprgade&#39;: &#39;ebfrockets&#39;</span>
+<span class='covered'>          },</span>
+<span class='covered'>          path: &#39;/attach&#39;</span>
+<span class='covered'>      };</span>
+<span class='covered'>      CLIENT.get(options, function (err, req) {</span>
+<span class='covered'>          t.ifError(err);</span>
+<span class='covered'>          req.on(&#39;error&#39;, function (err2) {</span>
+<span class='uncovered'>              t.ifError(err2);</span>
+<span class='uncovered'>              done(&#39;client error&#39;);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          req.on(&#39;result&#39;, function (err2, res) {</span>
+<span class='covered'>              if (err2 &amp;&amp; err2.name !== &#39;BadRequestError&#39;)</span>
+<span class='uncovered'>                  t.ifError(err2);</span>
+<span class='covered'>              t.equal(res.statusCode, 400);</span>
+<span class='covered'>              res.on(&#39;end&#39;, function () {</span>
+<span class='covered'>                  done(&#39;client response&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              res.resume();</span>
+<span class='covered'>          });</span>
+<span class='covered'>          req.on(&#39;upgradeResult&#39;, function (err2, res) {</span>
+<span class='uncovered'>              done(&#39;server upgraded unexpectedly&#39;);</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  });</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  test(&#39;Dueling upgrade and response handling 1&#39;, function (t) {</span>
+<span class='covered'>      var done = finish_latch(t, {</span>
+<span class='covered'>          &#39;expected requestUpgrade error&#39;: 1,</span>
+<span class='covered'>          &#39;client response&#39;: 1</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      SERVER.get(&#39;/attach&#39;, function (req, res, next) {</span>
+<span class='covered'>          try {</span>
+<span class='covered'>              res.send(400);</span>
+<span class='covered'>          } catch (ex) {</span>
+<span class='uncovered'>              t.ifError(ex);</span>
+<span class='uncovered'>              done(&#39;unxpected res.send error&#39;);</span>
+<span class='uncovered'>              return;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          try {</span>
+<span class='covered'>              var upg = res.claimUpgrade();</span>
+<span class='uncovered'>              upg.socket.destroy();</span>
+<span class='covered'>          } catch (ex) {</span>
+<span class='covered'>              done(&#39;expected requestUpgrade error&#39;);</span>
+<span class='covered'>          }</span>
+<span class='covered'>          next(false);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var wskey = WATERSHED.generateKey();</span>
+<span class='covered'>      var options = {</span>
+<span class='covered'>          headers: {</span>
+<span class='covered'>              &#39;connection&#39;: &#39;upgrade&#39;,</span>
+<span class='covered'>              &#39;upgrade&#39;: &#39;websocket&#39;,</span>
+<span class='covered'>              &#39;sec-websocket-key&#39;: wskey</span>
+<span class='covered'>          },</span>
+<span class='covered'>          path: &#39;/attach&#39;</span>
+<span class='covered'>      };</span>
+<span class='covered'>      CLIENT.get(options, function (err, req) {</span>
+<span class='covered'>          t.ifError(err);</span>
+<span class='covered'>          req.on(&#39;error&#39;, function (err2) {</span>
+<span class='uncovered'>              t.ifError(err2);</span>
+<span class='uncovered'>              done(&#39;client error&#39;);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          req.on(&#39;result&#39;, function (err2, res) {</span>
+<span class='covered'>              if (err2 &amp;&amp; err2.name !== &#39;BadRequestError&#39;)</span>
+<span class='uncovered'>                  t.ifError(err2);</span>
+<span class='covered'>              t.equal(res.statusCode, 400);</span>
+<span class='covered'>              res.on(&#39;end&#39;, function () {</span>
+<span class='covered'>                  done(&#39;client response&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              res.resume();</span>
+<span class='covered'>          });</span>
+<span class='covered'>          req.on(&#39;upgradeResult&#39;, function (err2, res) {</span>
+<span class='uncovered'>              done(&#39;server upgraded unexpectedly&#39;);</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  });</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  test(&#39;Dueling upgrade and response handling 2&#39;, function (t) {</span>
+<span class='covered'>      var done = finish_latch(t, {</span>
+<span class='covered'>          &#39;expected res.send error&#39;: 1,</span>
+<span class='covered'>          &#39;expected server to reset&#39;: 1</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      SERVER.get(&#39;/attach&#39;, function (req, res, next) {</span>
+<span class='covered'>          try {</span>
+<span class='covered'>              var upg = res.claimUpgrade();</span>
+<span class='covered'>              upg.socket.destroy();</span>
+<span class='covered'>          } catch (ex) {</span>
+<span class='uncovered'>              t.ifError(ex);</span>
+<span class='uncovered'>              done(&#39;unexpected requestUpgrade error&#39;);</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          try {</span>
+<span class='covered'>              res.send(400);</span>
+<span class='covered'>          } catch (ex) {</span>
+<span class='covered'>              if (ex.name !== &#39;InvalidUpgradeStateError&#39;)</span>
+<span class='uncovered'>                  t.ifError(ex);</span>
+<span class='covered'>              done(&#39;expected res.send error&#39;);</span>
+<span class='covered'>              return;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='uncovered'>          next(false);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var wskey = WATERSHED.generateKey();</span>
+<span class='covered'>      var options = {</span>
+<span class='covered'>          headers: {</span>
+<span class='covered'>              &#39;connection&#39;: &#39;upgrade&#39;,</span>
+<span class='covered'>              &#39;upgrade&#39;: &#39;websocket&#39;,</span>
+<span class='covered'>              &#39;sec-websocket-key&#39;: wskey</span>
+<span class='covered'>          },</span>
+<span class='covered'>          path: &#39;/attach&#39;</span>
+<span class='covered'>      };</span>
+<span class='covered'>      CLIENT.get(options, function (err, req) {</span>
+<span class='covered'>          t.ifError(err);</span>
+<span class='covered'>          done(&#39;expected server to reset&#39;);</span>
+<span class='covered'>          return;</span>
+<span class='covered'>      });</span>
+<span class='covered'>  });</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  test(&#39;GET with upgrade headers&#39;, function (t) {</span>
+<span class='covered'>      var done = finish_latch(t, {</span>
+<span class='covered'>          &#39;client shed end&#39;: 1,</span>
+<span class='covered'>          &#39;server shed end&#39;: 1</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      SERVER.get(&#39;/attach&#39;, function (req, res, next) {</span>
+<span class='covered'>          t.ok(res.claimUpgrade, &#39;res.claimUpgrade present&#39;);</span>
+<span class='covered'>          t.doesNotThrow(function () {</span>
+<span class='covered'>              var upgrade = res.claimUpgrade();</span>
+<span class='covered'>              var shed = WATERSHED.accept(req, upgrade.socket,</span>
+<span class='covered'>                  upgrade.head);</span>
+<span class='covered'>              SHEDLIST.push(shed);</span>
+<span class='covered'>              shed.end(&#39;ok we\&#39;re done here&#39;);</span>
+<span class='covered'>              shed.on(&#39;error&#39;, function (err) {</span>
+<span class='uncovered'>                  t.ifError(err);</span>
+<span class='uncovered'>                  done(&#39;server shed error&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              shed.on(&#39;end&#39;, function () {</span>
+<span class='covered'>                  done(&#39;server shed end&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              next(false);</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var wskey = WATERSHED.generateKey();</span>
+<span class='covered'>      var options = {</span>
+<span class='covered'>          headers: {</span>
+<span class='covered'>              &#39;connection&#39;: &#39;upgrade&#39;,</span>
+<span class='covered'>              &#39;upgrade&#39;: &#39;websocket&#39;,</span>
+<span class='covered'>              &#39;sec-websocket-key&#39;: wskey</span>
+<span class='covered'>          },</span>
+<span class='covered'>          path: &#39;/attach&#39;</span>
+<span class='covered'>      };</span>
+<span class='covered'>      CLIENT.get(options, function (err, req) {</span>
+<span class='covered'>          t.ifError(err);</span>
+<span class='covered'>          req.on(&#39;result&#39;, function (err2, res) {</span>
+<span class='uncovered'>              t.ifError(err2);</span>
+<span class='uncovered'>              t.ok(false, &#39;server did not upgrade&#39;);</span>
+<span class='uncovered'>              done(true);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          req.on(&#39;upgradeResult&#39;, function (err2, res, socket, head) {</span>
+<span class='covered'>              t.ifError(err2);</span>
+<span class='covered'>              t.ok(true, &#39;server upgraded&#39;);</span>
+<span class='covered'>              t.equal(res.statusCode, 101);</span>
+<span class='covered'>              t.equal(typeof (socket), &#39;object&#39;);</span>
+<span class='covered'>              t.ok(Buffer.isBuffer(head), &#39;head is Buffer&#39;);</span>
+<span class='covered'>              t.doesNotThrow(function () {</span>
+<span class='covered'>                  var shed = WATERSHED.connect(res, socket, head,</span>
+<span class='covered'>                      wskey);</span>
+<span class='covered'>                  SHEDLIST.push(shed);</span>
+<span class='covered'>                  shed.end(&#39;ok, done&#39;);</span>
+<span class='covered'>                  shed.on(&#39;error&#39;, function (err3) {</span>
+<span class='uncovered'>                      t.ifError(err3);</span>
+<span class='uncovered'>                      done(&#39;client shed error&#39;);</span>
+<span class='covered'>                  });</span>
+<span class='covered'>                  shed.on(&#39;end&#39;, function () {</span>
+<span class='covered'>                      done(&#39;client shed end&#39;);</span>
+<span class='covered'>                  });</span>
+<span class='covered'>              });</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  });</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  test(&#39;GET with some websocket traffic&#39;, function (t) {</span>
+<span class='covered'>      var done = finish_latch(t, {</span>
+<span class='covered'>          &#39;client shed end&#39;: 1,</span>
+<span class='covered'>          &#39;server shed end&#39;: 1,</span>
+<span class='covered'>          &#39;server receive message&#39;: 5,</span>
+<span class='covered'>          &#39;client receive message&#39;: 3</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      SERVER.get(&#39;/attach&#39;, function (req, res, next) {</span>
+<span class='covered'>          t.ok(res.claimUpgrade, &#39;res.claimUpgrade present&#39;);</span>
+<span class='covered'>          t.doesNotThrow(function () {</span>
+<span class='covered'>              var upgrade = res.claimUpgrade();</span>
+<span class='covered'>              var shed = WATERSHED.accept(req, upgrade.socket,</span>
+<span class='covered'>                  upgrade.head);</span>
+<span class='covered'>              SHEDLIST.push(shed);</span>
+<span class='covered'>              shed.on(&#39;error&#39;, function (err) {</span>
+<span class='uncovered'>                  t.ifError(err);</span>
+<span class='uncovered'>                  done(&#39;server shed error&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              shed.on(&#39;text&#39;, function (msg) {</span>
+<span class='covered'>                  if (msg === &#39;to server&#39;)</span>
+<span class='covered'>                      done(&#39;server receive message&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              shed.on(&#39;end&#39;, function () {</span>
+<span class='covered'>                  done(&#39;server shed end&#39;);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              shed.send(&#39;to client&#39;);</span>
+<span class='covered'>              shed.send(&#39;to client&#39;);</span>
+<span class='covered'>              shed.send(&#39;to client&#39;);</span>
+<span class='covered'>              next(false);</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var wskey = WATERSHED.generateKey();</span>
+<span class='covered'>      var options = {</span>
+<span class='covered'>          headers: {</span>
+<span class='covered'>              &#39;connection&#39;: &#39;upgrade&#39;,</span>
+<span class='covered'>              &#39;upgrade&#39;: &#39;websocket&#39;,</span>
+<span class='covered'>              &#39;sec-websocket-key&#39;: wskey</span>
+<span class='covered'>          },</span>
+<span class='covered'>          path: &#39;/attach&#39;</span>
+<span class='covered'>      };</span>
+<span class='covered'>      CLIENT.get(options, function (err, req) {</span>
+<span class='covered'>          t.ifError(err);</span>
+<span class='covered'>          req.on(&#39;result&#39;, function (err2, res) {</span>
+<span class='uncovered'>              t.ifError(err2);</span>
+<span class='uncovered'>              t.ok(false, &#39;server did not upgrade&#39;);</span>
+<span class='uncovered'>              done(true);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          req.on(&#39;upgradeResult&#39;, function (err2, res, socket, head) {</span>
+<span class='covered'>              t.ifError(err2);</span>
+<span class='covered'>              t.ok(true, &#39;server upgraded&#39;);</span>
+<span class='covered'>              t.equal(res.statusCode, 101);</span>
+<span class='covered'>              t.equal(typeof (socket), &#39;object&#39;);</span>
+<span class='covered'>              t.ok(Buffer.isBuffer(head), &#39;head is Buffer&#39;);</span>
+<span class='covered'>              t.doesNotThrow(function () {</span>
+<span class='covered'>                  var shed = WATERSHED.connect(res, socket, head,</span>
+<span class='covered'>                      wskey);</span>
+<span class='covered'>                  SHEDLIST.push(shed);</span>
+<span class='covered'>                  shed.on(&#39;error&#39;, function (err3) {</span>
+<span class='uncovered'>                      t.ifError(err3);</span>
+<span class='uncovered'>                      done(&#39;client shed error&#39;);</span>
+<span class='covered'>                  });</span>
+<span class='covered'>                  shed.on(&#39;end&#39;, function () {</span>
+<span class='covered'>                      done(&#39;client shed end&#39;);</span>
+<span class='covered'>                  });</span>
+<span class='covered'>                  shed.on(&#39;text&#39;, function (msg) {</span>
+<span class='covered'>                      if (msg === &#39;to client&#39;)</span>
+<span class='covered'>                          done(&#39;client receive message&#39;);</span>
+<span class='covered'>                  });</span>
+<span class='covered'>                  var count = 5;</span>
+<span class='covered'>                  var iv = setInterval(function () {</span>
+<span class='covered'>                      if (--count &lt; 0) {</span>
+<span class='covered'>                          clearInterval(iv);</span>
+<span class='covered'>                          shed.end();</span>
+<span class='covered'>                      } else {</span>
+<span class='covered'>                          shed.send(&#39;to server&#39;);</span>
+<span class='covered'>                      }</span>
+<span class='covered'>                  }, 100);</span>
+<span class='covered'>              });</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  });</span></pre></td>          
+            </tr>
+          </tbody>
+        </table>
+        <a class="index" href="index.html">« index</a> | <a class="coverio" href="http://cover.io">cover.io</a>
+      </div>
+  </body>
+</html>

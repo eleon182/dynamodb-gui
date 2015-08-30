@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/Users/yunong/workspace/node-restify/lib/clients/http_client.js -- cover.io</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+      html, body {
+        font-family: georgia, serif;
+      }
+      
+      .content {
+      }
+      table#files-table {
+        table-layout: fixed;
+        width: 94%;
+      }
+
+      table#files-table td, table#files-table th {
+        width: 11%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      table#files-table td:first-child, table#files-table th:first-child {
+        width: 33%;
+      }
+      
+      .partialuncovered { 
+        background: #EE9; 
+      }
+      
+      pre.prettyprint {
+        padding-top: 0em;
+        border: 5px;
+        padding-left: 0em;
+        padding-bottom: 0em;
+        font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+      }
+       
+      span.covered {
+        border-left: 2px solid lime; 
+      }
+      
+      span.uncovered {
+        background: #FDD;
+        border-left: 2px solid red; 
+      }
+      
+      span.partial {
+        border-left: 2px solid #EE9; 
+        background: #FFA;
+      }
+      
+      div.header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EEE;
+        height: 90px;
+        background: #F8F8F8;
+      }
+      
+      div.header-content {
+        padding: 1em 3em;
+      }
+      
+      a.index {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      a.coverio {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      div.content > a.index {
+        padding-left: 1.5em;
+        padding-bottom: 2em;
+      }
+      
+      div.header-content h3 {
+        font-weight: normal;
+      }
+      
+      span.filename {
+        font-weight: bold;
+      }
+      
+      span.percentage {
+        font-weight: bold;
+      }
+      
+      div.stats {
+        font-size: 13px;
+      }
+      
+      div.stats span.separator {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      div.stats span.stat-descriptor {
+        color: gray;
+      }
+      
+      table.code td.text {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .linenos p {
+        text-align: left;
+        margin: 0;
+        padding-right: 0.5em;
+        color: #999999;
+        font-family: verdana, sans-serif;
+        font-size: 0.8em;   /* 12/16 */
+        line-height: 16px;  /* 16/12 */
+      }
+
+      td.text {
+        width: 100%;
+        height: 16px;
+      }
+      
+      td.text pre > span {
+        padding-top: 3px;
+        line-height: 16px;
+      }
+    
+    </style>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="prettify.js"></script>
+    <script >
+    
+      $(function() {
+        $(".linenos p").css("text-align", "right");
+        setTimeout(function() {
+          prettyPrint();
+        });
+      });
+    </script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+      <div class="content">
+        <div class="header">
+          <div class="header-content">
+            <a class="index" href="index.html">« index</a>
+            <h3>Coverage for <span class="filename">/Users/yunong/workspace/node-restify/lib/clients/http_client.js</span> : <span class="percentage">90%</span></h3>
+            <div class="stats">
+              576  <span class="stat-descriptor">lines</span>     <span class="separator">| </span> 
+              523  <span class="stat-descriptor">run</span>        <span class="separator">| </span> 
+              53  <span class="stat-descriptor">missing</span>    <span class="separator">| </span> 
+              2  <span class="stat-descriptor">partial</span>      <span class="separator">| </span> 
+              101  <span class="stat-descriptor">blocks</span>     <span class="separator">| </span> 
+              63  <span class="stat-descriptor">blocks run</span>  <span class="separator">| </span> 
+              38  <span class="stat-descriptor">blocks missing</span>
+            </div>
+          </div>
+        </div>
+        <table class="code" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class='linenos' valign='top'><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p><p>45</p><p>46</p><p>47</p><p>48</p><p>49</p><p>50</p><p>51</p><p>52</p><p>53</p><p>54</p><p>55</p><p>56</p><p>57</p><p>58</p><p>59</p><p>60</p><p>61</p><p>62</p><p>63</p><p>64</p><p>65</p><p>66</p><p>67</p><p>68</p><p>69</p><p>70</p><p>71</p><p>72</p><p>73</p><p>74</p><p>75</p><p>76</p><p>77</p><p>78</p><p>79</p><p>80</p><p>81</p><p>82</p><p>83</p><p>84</p><p>85</p><p>86</p><p>87</p><p>88</p><p>89</p><p>90</p><p>91</p><p>92</p><p>93</p><p>94</p><p>95</p><p>96</p><p>97</p><p>98</p><p>99</p><p>100</p><p>101</p><p>102</p><p>103</p><p>104</p><p>105</p><p>106</p><p>107</p><p>108</p><p>109</p><p>110</p><p>111</p><p>112</p><p>113</p><p>114</p><p>115</p><p>116</p><p>117</p><p>118</p><p>119</p><p>120</p><p>121</p><p>122</p><p>123</p><p>124</p><p>125</p><p>126</p><p>127</p><p>128</p><p>129</p><p>130</p><p>131</p><p>132</p><p>133</p><p>134</p><p>135</p><p>136</p><p>137</p><p>138</p><p>139</p><p>140</p><p>141</p><p>142</p><p>143</p><p>144</p><p>145</p><p>146</p><p>147</p><p>148</p><p>149</p><p>150</p><p>151</p><p>152</p><p>153</p><p>154</p><p>155</p><p>156</p><p>157</p><p>158</p><p>159</p><p>160</p><p>161</p><p>162</p><p>163</p><p>164</p><p>165</p><p>166</p><p>167</p><p>168</p><p>169</p><p>170</p><p>171</p><p>172</p><p>173</p><p>174</p><p>175</p><p>176</p><p>177</p><p>178</p><p>179</p><p>180</p><p>181</p><p>182</p><p>183</p><p>184</p><p>185</p><p>186</p><p>187</p><p>188</p><p>189</p><p>190</p><p>191</p><p>192</p><p>193</p><p>194</p><p>195</p><p>196</p><p>197</p><p>198</p><p>199</p><p>200</p><p>201</p><p>202</p><p>203</p><p>204</p><p>205</p><p>206</p><p>207</p><p>208</p><p>209</p><p>210</p><p>211</p><p>212</p><p>213</p><p>214</p><p>215</p><p>216</p><p>217</p><p>218</p><p>219</p><p>220</p><p>221</p><p>222</p><p>223</p><p>224</p><p>225</p><p>226</p><p>227</p><p>228</p><p>229</p><p>230</p><p>231</p><p>232</p><p>233</p><p>234</p><p>235</p><p>236</p><p>237</p><p>238</p><p>239</p><p>240</p><p>241</p><p>242</p><p>243</p><p>244</p><p>245</p><p>246</p><p>247</p><p>248</p><p>249</p><p>250</p><p>251</p><p>252</p><p>253</p><p>254</p><p>255</p><p>256</p><p>257</p><p>258</p><p>259</p><p>260</p><p>261</p><p>262</p><p>263</p><p>264</p><p>265</p><p>266</p><p>267</p><p>268</p><p>269</p><p>270</p><p>271</p><p>272</p><p>273</p><p>274</p><p>275</p><p>276</p><p>277</p><p>278</p><p>279</p><p>280</p><p>281</p><p>282</p><p>283</p><p>284</p><p>285</p><p>286</p><p>287</p><p>288</p><p>289</p><p>290</p><p>291</p><p>292</p><p>293</p><p>294</p><p>295</p><p>296</p><p>297</p><p>298</p><p>299</p><p>300</p><p>301</p><p>302</p><p>303</p><p>304</p><p>305</p><p>306</p><p>307</p><p>308</p><p>309</p><p>310</p><p>311</p><p>312</p><p>313</p><p>314</p><p>315</p><p>316</p><p>317</p><p>318</p><p>319</p><p>320</p><p>321</p><p>322</p><p>323</p><p>324</p><p>325</p><p>326</p><p>327</p><p>328</p><p>329</p><p>330</p><p>331</p><p>332</p><p>333</p><p>334</p><p>335</p><p>336</p><p>337</p><p>338</p><p>339</p><p>340</p><p>341</p><p>342</p><p>343</p><p>344</p><p>345</p><p>346</p><p>347</p><p>348</p><p>349</p><p>350</p><p>351</p><p>352</p><p>353</p><p>354</p><p>355</p><p>356</p><p>357</p><p>358</p><p>359</p><p>360</p><p>361</p><p>362</p><p>363</p><p>364</p><p>365</p><p>366</p><p>367</p><p>368</p><p>369</p><p>370</p><p>371</p><p>372</p><p>373</p><p>374</p><p>375</p><p>376</p><p>377</p><p>378</p><p>379</p><p>380</p><p>381</p><p>382</p><p>383</p><p>384</p><p>385</p><p>386</p><p>387</p><p>388</p><p>389</p><p>390</p><p>391</p><p>392</p><p>393</p><p>394</p><p>395</p><p>396</p><p>397</p><p>398</p><p>399</p><p>400</p><p>401</p><p>402</p><p>403</p><p>404</p><p>405</p><p>406</p><p>407</p><p>408</p><p>409</p><p>410</p><p>411</p><p>412</p><p>413</p><p>414</p><p>415</p><p>416</p><p>417</p><p>418</p><p>419</p><p>420</p><p>421</p><p>422</p><p>423</p><p>424</p><p>425</p><p>426</p><p>427</p><p>428</p><p>429</p><p>430</p><p>431</p><p>432</p><p>433</p><p>434</p><p>435</p><p>436</p><p>437</p><p>438</p><p>439</p><p>440</p><p>441</p><p>442</p><p>443</p><p>444</p><p>445</p><p>446</p><p>447</p><p>448</p><p>449</p><p>450</p><p>451</p><p>452</p><p>453</p><p>454</p><p>455</p><p>456</p><p>457</p><p>458</p><p>459</p><p>460</p><p>461</p><p>462</p><p>463</p><p>464</p><p>465</p><p>466</p><p>467</p><p>468</p><p>469</p><p>470</p><p>471</p><p>472</p><p>473</p><p>474</p><p>475</p><p>476</p><p>477</p><p>478</p><p>479</p><p>480</p><p>481</p><p>482</p><p>483</p><p>484</p><p>485</p><p>486</p><p>487</p><p>488</p><p>489</p><p>490</p><p>491</p><p>492</p><p>493</p><p>494</p><p>495</p><p>496</p><p>497</p><p>498</p><p>499</p><p>500</p><p>501</p><p>502</p><p>503</p><p>504</p><p>505</p><p>506</p><p>507</p><p>508</p><p>509</p><p>510</p><p>511</p><p>512</p><p>513</p><p>514</p><p>515</p><p>516</p><p>517</p><p>518</p><p>519</p><p>520</p><p>521</p><p>522</p><p>523</p><p>524</p><p>525</p><p>526</p><p>527</p><p>528</p><p>529</p><p>530</p><p>531</p><p>532</p><p>533</p><p>534</p><p>535</p><p>536</p><p>537</p><p>538</p><p>539</p><p>540</p><p>541</p><p>542</p><p>543</p><p>544</p><p>545</p><p>546</p><p>547</p><p>548</p><p>549</p><p>550</p><p>551</p><p>552</p><p>553</p><p>554</p><p>555</p><p>556</p><p>557</p><p>558</p><p>559</p><p>560</p><p>561</p><p>562</p><p>563</p><p>564</p><p>565</p><p>566</p><p>567</p><p>568</p><p>569</p><p>570</p><p>571</p><p>572</p><p>573</p><p>574</p><p>575</p><p>576</p></td><td class='text' valign='top'><pre class='prettyprint lang-js'><span class='covered'>  // Copyright 2012 Mark Cavage, Inc.  All rights reserved.</span>
+<span class='covered'>  </span>
+<span class='covered'>  var crypto = require(&#39;crypto&#39;);</span>
+<span class='covered'>  var EventEmitter = require(&#39;events&#39;).EventEmitter;</span>
+<span class='covered'>  var fs = require(&#39;fs&#39;);</span>
+<span class='covered'>  var http = require(&#39;http&#39;);</span>
+<span class='covered'>  var https = require(&#39;https&#39;);</span>
+<span class='covered'>  var os = require(&#39;os&#39;);</span>
+<span class='covered'>  var querystring = require(&#39;querystring&#39;);</span>
+<span class='covered'>  var url = require(&#39;url&#39;);</span>
+<span class='covered'>  var util = require(&#39;util&#39;);</span>
+<span class='covered'>  var zlib = require(&#39;zlib&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var assert = require(&#39;assert-plus&#39;);</span>
+<span class='covered'>  var backoff = require(&#39;backoff&#39;);</span>
+<span class='covered'>  var mime = require(&#39;mime&#39;);</span>
+<span class='covered'>  var once = require(&#39;once&#39;);</span>
+<span class='covered'>  var tunnelAgent = require(&#39;tunnel-agent&#39;);</span>
+<span class='covered'>  var uuid = require(&#39;node-uuid&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var dtrace = require(&#39;../dtrace&#39;);</span>
+<span class='covered'>  var errors = require(&#39;../errors&#39;);</span>
+<span class='covered'>  var bunyan = require(&#39;../bunyan_helper&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  // Use native KeepAlive in Node as of 0.11.6</span>
+<span class='covered'>  var semver = require(&#39;semver&#39;);</span>
+<span class='covered'>  var nodeVersion = process.version;</span>
+<span class='covered'>  var nativeKeepAlive = semver.satisfies(nodeVersion, &#39;&gt;=0.11.6&#39;);</span>
+<span class='covered'>  var KeepAliveAgent;</span>
+<span class='covered'>  var KeepAliveAgentSecure;</span>
+<span class='covered'>  var httpMaxSockets = http.globalAgent.maxSockets;</span>
+<span class='covered'>  var httpsMaxSockets = https.globalAgent.maxSockets;</span>
+<span class='covered'>  if (!nativeKeepAlive) {</span>
+<span class='uncovered'>      KeepAliveAgent = require(&#39;keep-alive-agent&#39;);</span>
+<span class='uncovered'>      KeepAliveAgentSecure = KeepAliveAgent.Secure;</span>
+<span class='covered'>  } else {</span>
+<span class='covered'>      KeepAliveAgent = http.Agent;</span>
+<span class='covered'>      KeepAliveAgentSecure = https.Agent;</span>
+<span class='covered'>      // maxSockets defaults to Infinity, but that doesn&#39;t</span>
+<span class='covered'>      // lend itself well to KeepAlive, since sockets will</span>
+<span class='covered'>      // never be reused.</span>
+<span class='covered'>      httpMaxSockets = Math.min(httpMaxSockets, 1024);</span>
+<span class='covered'>      httpsMaxSockets = Math.min(httpsMaxSockets, 1024);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Globals</span>
+<span class='covered'>  </span>
+<span class='covered'>  /* JSSTYLED */</span>
+<span class='covered'>  var VERSION = JSON.parse(fs.readFileSync(require(&#39;path&#39;).normalize(__dirname + &#39;/../../package.json&#39;), &#39;utf8&#39;)).version;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Helpers</span>
+<span class='covered'>  </span>
+<span class='covered'>  function cloneRetryOptions(options, defaults) {</span>
+<span class='covered'>      if (options === false) {</span>
+<span class='covered'>          return (false);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      assert.optionalObject(options, &#39;options.retry&#39;);</span>
+<span class='covered'>      var r = options || {};</span>
+<span class='covered'>      assert.optionalNumber(r.minTimeout, &#39;options.retry.minTimeout&#39;);</span>
+<span class='covered'>      assert.optionalNumber(r.maxTimeout, &#39;options.retry.maxTimeout&#39;);</span>
+<span class='covered'>      assert.optionalNumber(r.retries, &#39;options.retry.retries&#39;);</span>
+<span class='covered'>      assert.optionalObject(defaults, &#39;defaults&#39;);</span>
+<span class='covered'>      defaults = defaults || {};</span>
+<span class='covered'>  </span>
+<span class='covered'>      return ({</span>
+<span class='covered'>          minTimeout: r.minTimeout || defaults.minTimeout || 1000,</span>
+<span class='covered'>          maxTimeout: r.maxTimeout || defaults.maxTimeout || Infinity,</span>
+<span class='covered'>          retries: r.retries || defaults.retries || 4</span>
+<span class='covered'>      });</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  function defaultUserAgent() {</span>
+<span class='covered'>      var UA = &#39;restify/&#39; + VERSION +</span>
+<span class='covered'>          &#39; (&#39; + os.arch() + &#39;-&#39; + os.platform() + &#39;; &#39; +</span>
+<span class='covered'>          &#39;v8/&#39; + process.versions.v8 + &#39;; &#39; +</span>
+<span class='covered'>          &#39;OpenSSL/&#39; + process.versions.openssl + &#39;) &#39; +</span>
+<span class='covered'>          &#39;node/&#39; + process.versions.node;</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (UA);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  function ConnectTimeoutError(ms) {</span>
+<span class='covered'>      if (Error.captureStackTrace)</span>
+<span class='covered'>          Error.captureStackTrace(this, ConnectTimeoutError);</span>
+<span class='covered'>  </span>
+<span class='covered'>      this.message = &#39;connect timeout after &#39; + ms + &#39;ms&#39;;</span>
+<span class='covered'>      this.name = &#39;ConnectTimeoutError&#39;;</span>
+<span class='covered'>  }</span>
+<span class='covered'>  util.inherits(ConnectTimeoutError, Error);</span>
+<span class='covered'>  </span>
+<span class='covered'>  function RequestTimeoutError(ms) {</span>
+<span class='covered'>      if (Error.captureStackTrace)</span>
+<span class='covered'>          Error.captureStackTrace(this, RequestTimeoutError);</span>
+<span class='covered'>  </span>
+<span class='covered'>      this.message = &#39;request timeout after &#39; + ms + &#39;ms&#39;;</span>
+<span class='covered'>      this.name = &#39;RequestTimeoutError&#39;;</span>
+<span class='covered'>  }</span>
+<span class='covered'>  util.inherits(RequestTimeoutError, Error);</span>
+<span class='covered'>  </span>
+<span class='covered'>  function rawRequest(opts, cb) {</span>
+<span class='covered'>      assert.object(opts, &#39;options&#39;);</span>
+<span class='covered'>      assert.object(opts.log, &#39;options.log&#39;);</span>
+<span class='covered'>      assert.func(cb, &#39;callback&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      cb = once(cb);</span>
+<span class='covered'>  </span>
+<span class='covered'>      var id = dtrace.nextId();</span>
+<span class='covered'>      var log = opts.log;</span>
+<span class='covered'>      var proto = opts.protocol === &#39;https:&#39; ? https : http;</span>
+<span class='covered'>      var connectionTimer;</span>
+<span class='covered'>      var requestTimer;</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (opts.cert &amp;&amp; opts.key)</span>
+<span class='uncovered'>          opts.agent = false;</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (opts.connectTimeout) {</span>
+<span class='covered'>          connectionTimer = setTimeout(function connectTimeout() {</span>
+<span class='covered'>              connectionTimer = null;</span>
+<span class='covered'>              if (req) {</span>
+<span class='covered'>                  req.abort();</span>
+<span class='covered'>              }</span>
+<span class='covered'>  </span>
+<span class='covered'>              var err = new ConnectTimeoutError(opts.connectTimeout);</span>
+<span class='covered'>              dtrace._rstfy_probes[&#39;client-error&#39;].fire(function () {</span>
+<span class='uncovered'>                  return ([id, err.toString()]);</span>
+<span class='covered'>              });</span>
+<span class='covered'>              cb(err, req);</span>
+<span class='covered'>          }, opts.connectTimeout);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      dtrace._rstfy_probes[&#39;client-request&#39;].fire(function () {</span>
+<span class='uncovered'>          return ([</span>
+<span class='uncovered'>              opts.method,</span>
+<span class='uncovered'>              opts.path,</span>
+<span class='uncovered'>              opts.headers,</span>
+<span class='uncovered'>              id</span>
+<span class='uncovered'>          ]);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var emit_result = once(function _emit_result(_err, _req, _res) {</span>
+<span class='covered'>          _req.emit(&#39;result&#39;, _err, _res);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      var req = proto.request(opts, function onResponse(res) {</span>
+<span class='covered'>          clearTimeout(connectionTimer);</span>
+<span class='covered'>          clearTimeout(requestTimer);</span>
+<span class='covered'>  </span>
+<span class='covered'>          dtrace._rstfy_probes[&#39;client-response&#39;].fire(function () {</span>
+<span class='uncovered'>              return ([ id, res.statusCode, res.headers ]);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          log.trace({client_res: res}, &#39;Response received&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>          res.log = log;</span>
+<span class='covered'>  </span>
+<span class='covered'>          var err;</span>
+<span class='covered'>          if (res.statusCode &gt;= 400)</span>
+<span class='covered'>              err = errors.codeToHttpError(res.statusCode);</span>
+<span class='covered'>  </span>
+<span class='covered'>          req.removeAllListeners(&#39;socket&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>          emit_result((err || null), req, res);</span>
+<span class='covered'>      });</span>
+<span class='covered'>      req.log = log;</span>
+<span class='covered'>  </span>
+<span class='covered'>      req.on(&#39;error&#39;, function onError(err) {</span>
+<span class='covered'>          dtrace._rstfy_probes[&#39;client-error&#39;].fire(function () {</span>
+<span class='uncovered'>              return ([id, (err || {}).toString()]);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          log.trace({err: err}, &#39;Request failed&#39;);</span>
+<span class='covered'>          clearTimeout(connectionTimer);</span>
+<span class='covered'>          clearTimeout(requestTimer);</span>
+<span class='covered'>  </span>
+<span class='covered'>          cb(err, req);</span>
+<span class='covered'>          if (req) {</span>
+<span class='covered'>              process.nextTick(function () {</span>
+<span class='covered'>                  emit_result(err, req, null);</span>
+<span class='covered'>              });</span>
+<span class='covered'>          }</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      req.once(&#39;upgrade&#39;, function onUpgrade(res, socket, _head) {</span>
+<span class='covered'>          clearTimeout(connectionTimer);</span>
+<span class='covered'>          clearTimeout(requestTimer);</span>
+<span class='covered'>          dtrace._rstfy_probes[&#39;client-response&#39;].fire(function () {</span>
+<span class='uncovered'>              return ([ id, res.statusCode, res.headers ]);</span>
+<span class='covered'>          });</span>
+<span class='covered'>          log.trace({client_res: res}, &#39;upgrade response received&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>          res.log = log;</span>
+<span class='covered'>  </span>
+<span class='covered'>          var err;</span>
+<span class='covered'>          if (res.statusCode &gt;= 400)</span>
+<span class='uncovered'>              err = errors.codeToHttpError(res.statusCode);</span>
+<span class='covered'>  </span>
+<span class='covered'>          req.removeAllListeners(&#39;error&#39;);</span>
+<span class='covered'>          req.removeAllListeners(&#39;socket&#39;);</span>
+<span class='covered'>          req.emit(&#39;upgradeResult&#39;, (err || null), res, socket, _head);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      req.once(&#39;socket&#39;, function onSocket(socket) {</span>
+<span class='covered'>          var _socket = socket;</span>
+<span class='covered'>          if (opts.protocol === &#39;https:&#39; &amp;&amp; socket.socket) {</span>
+<span class='uncovered'>              _socket = socket.socket;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (_socket.writable &amp;&amp; !_socket._connecting) {</span>
+<span class='uncovered'>              clearTimeout(connectionTimer);</span>
+<span class='uncovered'>              cb(null, req);</span>
+<span class='uncovered'>              return;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          _socket.once(&#39;connect&#39;, function onConnect() {</span>
+<span class='covered'>              clearTimeout(connectionTimer);</span>
+<span class='covered'>              if (opts._keep_alive) {</span>
+<span class='covered'>                  _socket.setKeepAlive(true);</span>
+<span class='covered'>                  socket.setKeepAlive(true);</span>
+<span class='covered'>              }</span>
+<span class='covered'>  </span>
+<span class='covered'>              if (opts.requestTimeout) {</span>
+<span class='covered'>                  requestTimer = setTimeout(function requestTimeout() {</span>
+<span class='covered'>                      requestTimer = null;</span>
+<span class='covered'>  </span>
+<span class='covered'>                      var err = new RequestTimeoutError(opts.requestTimeout);</span>
+<span class='covered'>                      dtrace._rstfy_probes[&#39;client-error&#39;].fire(function () {</span>
+<span class='uncovered'>                          return ([id, err.toString()]);</span>
+<span class='covered'>                      });</span>
+<span class='covered'>  </span>
+<span class='covered'>                      cb(err, req);</span>
+<span class='covered'>  </span>
+<span class='covered'>                      if (req) {</span>
+<span class='covered'>                          req.abort();</span>
+<span class='covered'>                          process.nextTick(function () {</span>
+<span class='covered'>                              req.emit(&#39;result&#39;, err, null);</span>
+<span class='covered'>                          });</span>
+<span class='covered'>                      }</span>
+<span class='covered'>                  }, opts.requestTimeout);</span>
+<span class='covered'>              }</span>
+<span class='covered'>  </span>
+<span class='covered'>              cb(null, req);</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (opts.signRequest)</span>
+<span class='covered'>          opts.signRequest(req);</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (log.trace())</span>
+<span class='uncovered'>          log.trace({client_req: opts}, &#39;request sent&#39;);</span>
+<span class='covered'>  } // end `rawRequest`</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- API</span>
+<span class='covered'>  </span>
+<span class='covered'>  function HttpClient(options) {</span>
+<span class='covered'>      assert.object(options, &#39;options&#39;);</span>
+<span class='covered'>      assert.optionalObject(options.headers, &#39;options.headers&#39;);</span>
+<span class='covered'>      assert.object(options.log, &#39;options.log&#39;);</span>
+<span class='covered'>      assert.optionalFunc(options.signRequest, &#39;options.signRequest&#39;);</span>
+<span class='covered'>      assert.optionalString(options.socketPath, &#39;options.socketPath&#39;);</span>
+<span class='covered'>      assert.optionalString(options.url, &#39;options.url&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      EventEmitter.call(this);</span>
+<span class='covered'>  </span>
+<span class='covered'>      var self = this;</span>
+<span class='covered'>  </span>
+<span class='covered'>      this.agent = options.agent;</span>
+<span class='covered'>      this.ca = options.ca;</span>
+<span class='covered'>      this.cert = options.cert;</span>
+<span class='covered'>      this.ciphers = options.ciphers;</span>
+<span class='covered'>      this.connectTimeout = options.connectTimeout || false;</span>
+<span class='covered'>      this.requestTimeout = options.requestTimeout || false;</span>
+<span class='covered'>      this.headers = options.headers || {};</span>
+<span class='covered'>      this.log = options.log;</span>
+<span class='covered'>      if (!this.log.serializers) {</span>
+<span class='covered'>          // Ensure logger has a reasonable serializer for `client_res`</span>
+<span class='covered'>          // and `client_req` logged in this module.</span>
+<span class='uncovered'>          this.log = this.log.child({serializers: bunyan.serializers});</span>
+<span class='covered'>      }</span>
+<span class='covered'>      this.key = options.key;</span>
+<span class='covered'>      this.name = options.name || &#39;HttpClient&#39;;</span>
+<span class='covered'>      this.passphrase = options.passphrase;</span>
+<span class='covered'>      this.pfx = options.pfx;</span>
+<span class='covered'>      if (options.rejectUnauthorized !== undefined) {</span>
+<span class='covered'>          this.rejectUnauthorized = options.rejectUnauthorized;</span>
+<span class='covered'>      } else {</span>
+<span class='covered'>          this.rejectUnauthorized = true;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (process.env.https_proxy) {</span>
+<span class='uncovered'>          this.proxy = url.parse(process.env.https_proxy);</span>
+<span class='covered'>      } else if (process.env.http_proxy) {</span>
+<span class='uncovered'>          this.proxy = url.parse(process.env.http_proxy);</span>
+<span class='covered'>      } else if (options.proxy) {</span>
+<span class='uncovered'>          this.proxy = options.proxy;</span>
+<span class='covered'>      } else {</span>
+<span class='covered'>          this.proxy = false;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      this.retry = cloneRetryOptions(options.retry);</span>
+<span class='covered'>      this.signRequest = options.signRequest || false;</span>
+<span class='covered'>      this.socketPath = options.socketPath || false;</span>
+<span class='partial'>      this.url = options.url ? url.parse(options.url) : <span class='partialuncovered'>{};</span></span>
+<span class='covered'>  </span>
+<span class='covered'>      if (options.accept) {</span>
+<span class='covered'>          if (options.accept.indexOf(&#39;/&#39;) === -1)</span>
+<span class='uncovered'>              options.accept = mime.lookup(options.accept);</span>
+<span class='covered'>  </span>
+<span class='covered'>          this.headers.accept = options.accept;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (options.contentType) {</span>
+<span class='covered'>          if (options.contentType.indexOf(&#39;/&#39;) === -1)</span>
+<span class='uncovered'>              options.type = mime.lookup(options.contentType);</span>
+<span class='covered'>  </span>
+<span class='covered'>          this.headers[&#39;content-type&#39;] = options.contentType;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (options.userAgent !== false) {</span>
+<span class='covered'>          this.headers[&#39;user-agent&#39;] = options.userAgent ||</span>
+<span class='covered'>              defaultUserAgent();</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (options.version)</span>
+<span class='uncovered'>          this.headers[&#39;accept-version&#39;] = options.version;</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (this.agent === undefined) {</span>
+<span class='covered'>          var Agent;</span>
+<span class='covered'>          var maxSockets;</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (this.proxy) {</span>
+<span class='uncovered'>              if (this.url.protocol == &#39;https:&#39;) {</span>
+<span class='uncovered'>                  if (this.proxy.protocol === &#39;https:&#39;) {</span>
+<span class='uncovered'>                      Agent = tunnelAgent.httpsOverHttps;</span>
+<span class='covered'>                  } else {</span>
+<span class='uncovered'>                      Agent = tunnelAgent.httpsOverHttp;</span>
+<span class='covered'>                  }</span>
+<span class='covered'>              } else {</span>
+<span class='uncovered'>                  if (this.proxy.protocol === &#39;https:&#39;) {</span>
+<span class='uncovered'>                      Agent = tunnelAgent.httpOverHttps;</span>
+<span class='covered'>                  } else {</span>
+<span class='uncovered'>                      Agent = tunnelAgent.httpOverHttp;</span>
+<span class='covered'>                  }</span>
+<span class='covered'>              }</span>
+<span class='covered'>          } else if (this.url.protocol === &#39;https:&#39;) {</span>
+<span class='covered'>              Agent = KeepAliveAgentSecure;</span>
+<span class='covered'>              maxSockets = httpsMaxSockets;</span>
+<span class='covered'>          } else {</span>
+<span class='covered'>              Agent = KeepAliveAgent;</span>
+<span class='covered'>              maxSockets = httpMaxSockets;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (this.proxy) {</span>
+<span class='uncovered'>              this.agent = new Agent({</span>
+<span class='uncovered'>                  proxy: self.proxy,</span>
+<span class='uncovered'>                  rejectUnauthorized: self.rejectUnauthorized,</span>
+<span class='uncovered'>                  ca: self.ca</span>
+<span class='uncovered'>              });</span>
+<span class='covered'>          } else {</span>
+<span class='covered'>              this.agent = new Agent({</span>
+<span class='covered'>                  cert: self.cert,</span>
+<span class='covered'>                  ca: self.ca,</span>
+<span class='covered'>                  ciphers: self.ciphers,</span>
+<span class='covered'>                  key: self.key,</span>
+<span class='covered'>                  maxSockets: maxSockets,</span>
+<span class='covered'>  </span>
+<span class='covered'>                  // require(&#39;keep-alive-agent&#39;)</span>
+<span class='covered'>                  maxKeepAliveRequests: 0,</span>
+<span class='covered'>                  maxKeepAliveTime: 0,</span>
+<span class='covered'>  </span>
+<span class='covered'>                  // native keepalive</span>
+<span class='covered'>                  keepAliveMsecs: 1000,</span>
+<span class='covered'>                  keepAlive: true,</span>
+<span class='covered'>  </span>
+<span class='covered'>                  passphrase: self.passphrase,</span>
+<span class='covered'>                  pfx: self.pfx,</span>
+<span class='covered'>                  rejectUnauthorized: self.rejectUnauthorized</span>
+<span class='covered'>              });</span>
+<span class='covered'>              this._keep_alive = true;</span>
+<span class='covered'>          }</span>
+<span class='covered'>      }</span>
+<span class='covered'>  }</span>
+<span class='covered'>  util.inherits(HttpClient, EventEmitter);</span>
+<span class='covered'>  module.exports = HttpClient;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.close = function close() {</span>
+<span class='covered'>      var sockets = this.agent.sockets;</span>
+<span class='covered'>      Object.keys((sockets || {})).forEach(function (k) {</span>
+<span class='covered'>          if (Array.isArray(sockets[k])) {</span>
+<span class='covered'>              sockets[k].forEach(function (s) {</span>
+<span class='covered'>                  s.end();</span>
+<span class='covered'>              });</span>
+<span class='covered'>          }</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      sockets = this.agent.idleSockets || this.agent.freeSockets;</span>
+<span class='covered'>      Object.keys((sockets || {})).forEach(function (k) {</span>
+<span class='covered'>          sockets[k].forEach(function (s) {</span>
+<span class='covered'>              s.end();</span>
+<span class='covered'>          });</span>
+<span class='covered'>      });</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.del = function del(options, callback) {</span>
+<span class='covered'>      var opts = this._options(&#39;DELETE&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this.read(opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.get = function get(options, callback) {</span>
+<span class='covered'>      var opts = this._options(&#39;GET&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this.read(opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.head = function head(options, callback) {</span>
+<span class='covered'>      var opts = this._options(&#39;HEAD&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this.read(opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.opts = function http_options(options, callback) {</span>
+<span class='uncovered'>      var _opts = this._options(&#39;OPTIONS&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return (this.read(_opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.post = function post(options, callback) {</span>
+<span class='covered'>      var opts = this._options(&#39;POST&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this.request(opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.put = function put(options, callback) {</span>
+<span class='uncovered'>      var opts = this._options(&#39;PUT&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return (this.request(opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.patch = function patch(options, callback) {</span>
+<span class='uncovered'>      var opts = this._options(&#39;PATCH&#39;, options);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return (this.request(opts, callback));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.read = function read(options, callback) {</span>
+<span class='covered'>      var r = this.request(options, function readRequestCallback(err, req) {</span>
+<span class='covered'>          if (!err)</span>
+<span class='covered'>              req.end();</span>
+<span class='covered'>  </span>
+<span class='covered'>          return (callback(err, req));</span>
+<span class='covered'>      });</span>
+<span class='covered'>      return (r);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.basicAuth = function basicAuth(username, password) {</span>
+<span class='uncovered'>      if (username === false) {</span>
+<span class='uncovered'>          delete this.headers.authorization;</span>
+<span class='covered'>      } else {</span>
+<span class='uncovered'>          assert.string(username, &#39;username&#39;);</span>
+<span class='uncovered'>          assert.string(password, &#39;password&#39;);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>          var buffer = new Buffer(username + &#39;:&#39; + password, &#39;utf8&#39;);</span>
+<span class='uncovered'>          this.headers.authorization = &#39;Basic &#39; +</span>
+<span class='uncovered'>              buffer.toString(&#39;base64&#39;);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return (this);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype.request = function request(opts, cb) {</span>
+<span class='covered'>      assert.object(opts, &#39;options&#39;);</span>
+<span class='covered'>      assert.func(cb, &#39;callback&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      cb = once(cb);</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (opts.retry === false) {</span>
+<span class='covered'>          rawRequest(opts, cb);</span>
+<span class='covered'>          return;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      var call;</span>
+<span class='covered'>      var retry = cloneRetryOptions(opts.retry);</span>
+<span class='covered'>  </span>
+<span class='covered'>      opts._keep_alive = this._keep_alive;</span>
+<span class='covered'>      call = backoff.call(rawRequest, opts, cb);</span>
+<span class='covered'>      call.setStrategy(new backoff.ExponentialStrategy({</span>
+<span class='covered'>          initialDelay: retry.minTimeout,</span>
+<span class='covered'>          maxDelay: retry.maxTimeout</span>
+<span class='covered'>      }));</span>
+<span class='covered'>      call.failAfter(retry.retries);</span>
+<span class='covered'>      call.on(&#39;backoff&#39;, this.emit.bind(this, &#39;attempt&#39;));</span>
+<span class='covered'>  </span>
+<span class='covered'>      call.start();</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  HttpClient.prototype._options = function (method, options) {</span>
+<span class='covered'>      if (typeof (options) !== &#39;object&#39;)</span>
+<span class='covered'>          options = { path: options };</span>
+<span class='covered'>  </span>
+<span class='covered'>      var self = this;</span>
+<span class='covered'>      var opts = {</span>
+<span class='covered'>          agent: options.agent !== undefined ? options.agent : self.agent,</span>
+<span class='covered'>          ca: options.ca || self.ca,</span>
+<span class='covered'>          cert: options.cert || self.cert,</span>
+<span class='covered'>          ciphers: options.ciphers || self.ciphers,</span>
+<span class='covered'>          connectTimeout: options.connectTimeout || self.connectTimeout,</span>
+<span class='covered'>          requestTimeout: options.requestTimeout || self.requestTimeout,</span>
+<span class='covered'>          headers: options.headers || {},</span>
+<span class='covered'>          key: options.key || self.key,</span>
+<span class='covered'>          log: options.log || self.log,</span>
+<span class='covered'>          method: method,</span>
+<span class='covered'>          passphrase: options.passphrase || self.passphrase,</span>
+<span class='covered'>          path: options.path || self.path,</span>
+<span class='covered'>          pfx: options.pfx || self.pfx,</span>
+<span class='covered'>          rejectUnauthorized: options.rejectUnauthorized ||</span>
+<span class='covered'>              self.rejectUnauthorized,</span>
+<span class='partial'>          retry: options.retry !== false ? options.retry : <span class='partialuncovered'>false,</span></span>
+<span class='covered'>          signRequest: options.signRequest || self.signRequest</span>
+<span class='covered'>      };</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (!opts.retry &amp;&amp; opts.retry !== false)</span>
+<span class='covered'>          opts.retry = self.retry;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>      // Backwards compatibility with restify &lt; 1.0</span>
+<span class='covered'>      if (options.query &amp;&amp;</span>
+<span class='uncovered'>          Object.keys(options.query).length &amp;&amp;</span>
+<span class='uncovered'>          opts.path.indexOf(&#39;?&#39;) === -1) {</span>
+<span class='uncovered'>          opts.path += &#39;?&#39; + querystring.stringify(options.query);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (this.socketPath)</span>
+<span class='uncovered'>          opts.socketPath = this.socketPath;</span>
+<span class='covered'>  </span>
+<span class='covered'>      Object.keys(this.url).forEach(function (k) {</span>
+<span class='covered'>          if (!opts[k])</span>
+<span class='covered'>              opts[k] = self.url[k];</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      Object.keys(self.headers).forEach(function (k) {</span>
+<span class='covered'>          if (!opts.headers[k])</span>
+<span class='covered'>              opts.headers[k] = self.headers[k];</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (!opts.headers.date)</span>
+<span class='covered'>          opts.headers.date = new Date().toUTCString();</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (method === &#39;GET&#39; || method === &#39;HEAD&#39; || method === &#39;DELETE&#39;) {</span>
+<span class='covered'>          if (opts.headers[&#39;content-type&#39;])</span>
+<span class='covered'>              delete opts.headers[&#39;content-type&#39;];</span>
+<span class='covered'>          if (opts.headers[&#39;content-md5&#39;])</span>
+<span class='uncovered'>              delete opts.headers[&#39;content-md5&#39;];</span>
+<span class='covered'>          if (opts.headers[&#39;content-length&#39;] &amp;&amp; method !== &#39;DELETE&#39;)</span>
+<span class='uncovered'>              delete opts.headers[&#39;content-length&#39;];</span>
+<span class='covered'>          if (opts.headers[&#39;transfer-encoding&#39;])</span>
+<span class='uncovered'>              delete opts.headers[&#39;transfer-encoding&#39;];</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (opts);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  // vim: set ts=4 sts=4 sw=4 et:</span></pre></td>          
+            </tr>
+          </tbody>
+        </table>
+        <a class="index" href="index.html">« index</a> | <a class="coverio" href="http://cover.io">cover.io</a>
+      </div>
+  </body>
+</html>

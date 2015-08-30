@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/Users/yunong/workspace/node-restify/lib/request.js -- cover.io</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+      html, body {
+        font-family: georgia, serif;
+      }
+      
+      .content {
+      }
+      table#files-table {
+        table-layout: fixed;
+        width: 94%;
+      }
+
+      table#files-table td, table#files-table th {
+        width: 11%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      table#files-table td:first-child, table#files-table th:first-child {
+        width: 33%;
+      }
+      
+      .partialuncovered { 
+        background: #EE9; 
+      }
+      
+      pre.prettyprint {
+        padding-top: 0em;
+        border: 5px;
+        padding-left: 0em;
+        padding-bottom: 0em;
+        font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+      }
+       
+      span.covered {
+        border-left: 2px solid lime; 
+      }
+      
+      span.uncovered {
+        background: #FDD;
+        border-left: 2px solid red; 
+      }
+      
+      span.partial {
+        border-left: 2px solid #EE9; 
+        background: #FFA;
+      }
+      
+      div.header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EEE;
+        height: 90px;
+        background: #F8F8F8;
+      }
+      
+      div.header-content {
+        padding: 1em 3em;
+      }
+      
+      a.index {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      a.coverio {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      div.content > a.index {
+        padding-left: 1.5em;
+        padding-bottom: 2em;
+      }
+      
+      div.header-content h3 {
+        font-weight: normal;
+      }
+      
+      span.filename {
+        font-weight: bold;
+      }
+      
+      span.percentage {
+        font-weight: bold;
+      }
+      
+      div.stats {
+        font-size: 13px;
+      }
+      
+      div.stats span.separator {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      div.stats span.stat-descriptor {
+        color: gray;
+      }
+      
+      table.code td.text {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .linenos p {
+        text-align: left;
+        margin: 0;
+        padding-right: 0.5em;
+        color: #999999;
+        font-family: verdana, sans-serif;
+        font-size: 0.8em;   /* 12/16 */
+        line-height: 16px;  /* 16/12 */
+      }
+
+      td.text {
+        width: 100%;
+        height: 16px;
+      }
+      
+      td.text pre > span {
+        padding-top: 3px;
+        line-height: 16px;
+      }
+    
+    </style>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="prettify.js"></script>
+    <script >
+    
+      $(function() {
+        $(".linenos p").css("text-align", "right");
+        setTimeout(function() {
+          prettyPrint();
+        });
+      });
+    </script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+      <div class="content">
+        <div class="header">
+          <div class="header-content">
+            <a class="index" href="index.html">« index</a>
+            <h3>Coverage for <span class="filename">/Users/yunong/workspace/node-restify/lib/request.js</span> : <span class="percentage">86%</span></h3>
+            <div class="stats">
+              364  <span class="stat-descriptor">lines</span>     <span class="separator">| </span> 
+              316  <span class="stat-descriptor">run</span>        <span class="separator">| </span> 
+              48  <span class="stat-descriptor">missing</span>    <span class="separator">| </span> 
+              1  <span class="stat-descriptor">partial</span>      <span class="separator">| </span> 
+              61  <span class="stat-descriptor">blocks</span>     <span class="separator">| </span> 
+              35  <span class="stat-descriptor">blocks run</span>  <span class="separator">| </span> 
+              26  <span class="stat-descriptor">blocks missing</span>
+            </div>
+          </div>
+        </div>
+        <table class="code" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class='linenos' valign='top'><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p><p>45</p><p>46</p><p>47</p><p>48</p><p>49</p><p>50</p><p>51</p><p>52</p><p>53</p><p>54</p><p>55</p><p>56</p><p>57</p><p>58</p><p>59</p><p>60</p><p>61</p><p>62</p><p>63</p><p>64</p><p>65</p><p>66</p><p>67</p><p>68</p><p>69</p><p>70</p><p>71</p><p>72</p><p>73</p><p>74</p><p>75</p><p>76</p><p>77</p><p>78</p><p>79</p><p>80</p><p>81</p><p>82</p><p>83</p><p>84</p><p>85</p><p>86</p><p>87</p><p>88</p><p>89</p><p>90</p><p>91</p><p>92</p><p>93</p><p>94</p><p>95</p><p>96</p><p>97</p><p>98</p><p>99</p><p>100</p><p>101</p><p>102</p><p>103</p><p>104</p><p>105</p><p>106</p><p>107</p><p>108</p><p>109</p><p>110</p><p>111</p><p>112</p><p>113</p><p>114</p><p>115</p><p>116</p><p>117</p><p>118</p><p>119</p><p>120</p><p>121</p><p>122</p><p>123</p><p>124</p><p>125</p><p>126</p><p>127</p><p>128</p><p>129</p><p>130</p><p>131</p><p>132</p><p>133</p><p>134</p><p>135</p><p>136</p><p>137</p><p>138</p><p>139</p><p>140</p><p>141</p><p>142</p><p>143</p><p>144</p><p>145</p><p>146</p><p>147</p><p>148</p><p>149</p><p>150</p><p>151</p><p>152</p><p>153</p><p>154</p><p>155</p><p>156</p><p>157</p><p>158</p><p>159</p><p>160</p><p>161</p><p>162</p><p>163</p><p>164</p><p>165</p><p>166</p><p>167</p><p>168</p><p>169</p><p>170</p><p>171</p><p>172</p><p>173</p><p>174</p><p>175</p><p>176</p><p>177</p><p>178</p><p>179</p><p>180</p><p>181</p><p>182</p><p>183</p><p>184</p><p>185</p><p>186</p><p>187</p><p>188</p><p>189</p><p>190</p><p>191</p><p>192</p><p>193</p><p>194</p><p>195</p><p>196</p><p>197</p><p>198</p><p>199</p><p>200</p><p>201</p><p>202</p><p>203</p><p>204</p><p>205</p><p>206</p><p>207</p><p>208</p><p>209</p><p>210</p><p>211</p><p>212</p><p>213</p><p>214</p><p>215</p><p>216</p><p>217</p><p>218</p><p>219</p><p>220</p><p>221</p><p>222</p><p>223</p><p>224</p><p>225</p><p>226</p><p>227</p><p>228</p><p>229</p><p>230</p><p>231</p><p>232</p><p>233</p><p>234</p><p>235</p><p>236</p><p>237</p><p>238</p><p>239</p><p>240</p><p>241</p><p>242</p><p>243</p><p>244</p><p>245</p><p>246</p><p>247</p><p>248</p><p>249</p><p>250</p><p>251</p><p>252</p><p>253</p><p>254</p><p>255</p><p>256</p><p>257</p><p>258</p><p>259</p><p>260</p><p>261</p><p>262</p><p>263</p><p>264</p><p>265</p><p>266</p><p>267</p><p>268</p><p>269</p><p>270</p><p>271</p><p>272</p><p>273</p><p>274</p><p>275</p><p>276</p><p>277</p><p>278</p><p>279</p><p>280</p><p>281</p><p>282</p><p>283</p><p>284</p><p>285</p><p>286</p><p>287</p><p>288</p><p>289</p><p>290</p><p>291</p><p>292</p><p>293</p><p>294</p><p>295</p><p>296</p><p>297</p><p>298</p><p>299</p><p>300</p><p>301</p><p>302</p><p>303</p><p>304</p><p>305</p><p>306</p><p>307</p><p>308</p><p>309</p><p>310</p><p>311</p><p>312</p><p>313</p><p>314</p><p>315</p><p>316</p><p>317</p><p>318</p><p>319</p><p>320</p><p>321</p><p>322</p><p>323</p><p>324</p><p>325</p><p>326</p><p>327</p><p>328</p><p>329</p><p>330</p><p>331</p><p>332</p><p>333</p><p>334</p><p>335</p><p>336</p><p>337</p><p>338</p><p>339</p><p>340</p><p>341</p><p>342</p><p>343</p><p>344</p><p>345</p><p>346</p><p>347</p><p>348</p><p>349</p><p>350</p><p>351</p><p>352</p><p>353</p><p>354</p><p>355</p><p>356</p><p>357</p><p>358</p><p>359</p><p>360</p><p>361</p><p>362</p><p>363</p><p>364</p></td><td class='text' valign='top'><pre class='prettyprint lang-js'><span class='covered'>  // Copyright 2012 Mark Cavage, Inc.  All rights reserved.</span>
+<span class='covered'>  </span>
+<span class='covered'>  var http = require(&#39;http&#39;);</span>
+<span class='covered'>  var url = require(&#39;url&#39;);</span>
+<span class='covered'>  var sprintf = require(&#39;util&#39;).format;</span>
+<span class='covered'>  </span>
+<span class='covered'>  var assert = require(&#39;assert-plus&#39;);</span>
+<span class='covered'>  var mime = require(&#39;mime&#39;);</span>
+<span class='covered'>  var Negotatior = require(&#39;negotiator&#39;);</span>
+<span class='covered'>  var uuid = require(&#39;node-uuid&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var dtrace = require(&#39;./dtrace&#39;);</span>
+<span class='covered'>  var utils = require(&#39;./utils&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Globals</span>
+<span class='covered'>  </span>
+<span class='covered'>  var Request = http.IncomingMessage;</span>
+<span class='covered'>  </span>
+<span class='covered'>  var parseAccept = utils.parseAccept;</span>
+<span class='covered'>  var sanitizePath = utils.sanitizePath;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///-- Helpers</span>
+<span class='covered'>  </span>
+<span class='covered'>  function negotiator(req) {</span>
+<span class='covered'>      var h = req.headers;</span>
+<span class='covered'>      if (!req._negotatiator) {</span>
+<span class='covered'>          req._negotiator = new Negotatior({</span>
+<span class='covered'>              headers: {</span>
+<span class='covered'>                  accept: h.accept || &#39;*/*&#39;,</span>
+<span class='covered'>                  &#39;accept-encoding&#39;: h[&#39;accept-encoding&#39;] ||</span>
+<span class='covered'>                      &#39;identity&#39;</span>
+<span class='covered'>              }</span>
+<span class='covered'>          });</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (req._negotiator);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- API</span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Patches</span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.absoluteUri = function absoluteUri(path) {</span>
+<span class='covered'>      assert.string(path, &#39;path&#39;);</span>
+<span class='covered'>  </span>
+<span class='partial'>      var protocol = this.secure ? <span class='partialuncovered'>&#39;https://&#39; </span>: &#39;http://&#39;;</span>
+<span class='covered'>      var hostname = this.headers.host;</span>
+<span class='covered'>      return (url.resolve(protocol + hostname + this.path() + &#39;/&#39;, path));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.accepts = function accepts(types) {</span>
+<span class='covered'>      if (typeof (types) === &#39;string&#39;)</span>
+<span class='uncovered'>          types = [types];</span>
+<span class='covered'>  </span>
+<span class='covered'>      types = types.map(function (t) {</span>
+<span class='covered'>          assert.string(t, &#39;type&#39;);</span>
+<span class='covered'>          if (t.indexOf(&#39;/&#39;) === -1)</span>
+<span class='uncovered'>              t = mime.lookup(t);</span>
+<span class='covered'>          return (t);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      negotiator(this);</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._negotiator.preferredMediaType(types));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.acceptsEncoding = function acceptsEncoding(types) {</span>
+<span class='covered'>      if (typeof (types) === &#39;string&#39;)</span>
+<span class='covered'>          types = [types];</span>
+<span class='covered'>  </span>
+<span class='covered'>      assert.arrayOfString(types, &#39;types&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      negotiator(this);</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._negotiator.preferredEncoding(types));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getContentLength = function getContentLength() {</span>
+<span class='covered'>      if (this._clen !== undefined)</span>
+<span class='covered'>          return (this._clen === false ? undefined : this._clen);</span>
+<span class='covered'>  </span>
+<span class='covered'>      // We should not attempt to read and parse the body of an</span>
+<span class='covered'>      // Upgrade request, so force Content-Length to zero:</span>
+<span class='covered'>      if (this.isUpgradeRequest())</span>
+<span class='uncovered'>          return (0);</span>
+<span class='covered'>  </span>
+<span class='covered'>      var len = this.header(&#39;content-length&#39;);</span>
+<span class='covered'>      if (!len) {</span>
+<span class='covered'>          this._clen = false;</span>
+<span class='covered'>      } else {</span>
+<span class='covered'>          this._clen = parseInt(len, 10);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._clen === false ? undefined : this._clen);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.contentLength = Request.prototype.getContentLength;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getContentType = function getContentType() {</span>
+<span class='covered'>      if (this._contentType !== undefined)</span>
+<span class='covered'>          return (this._contentType);</span>
+<span class='covered'>  </span>
+<span class='covered'>      var index;</span>
+<span class='covered'>      var type = this.headers[&#39;content-type&#39;];</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (!type) {</span>
+<span class='covered'>          // RFC2616 section 7.2.1</span>
+<span class='covered'>          this._contentType = &#39;application/octet-stream&#39;;</span>
+<span class='covered'>      } else {</span>
+<span class='covered'>          if ((index = type.indexOf(&#39;;&#39;)) === -1) {</span>
+<span class='covered'>              this._contentType = type;</span>
+<span class='covered'>          } else {</span>
+<span class='covered'>              this._contentType = type.substring(0, index);</span>
+<span class='covered'>          }</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._contentType);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.contentType = Request.prototype.getContentType;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.date = function date() {</span>
+<span class='uncovered'>      if (this._date !== undefined)</span>
+<span class='uncovered'>          return (this._date);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      this._date = new Date(this._time);</span>
+<span class='uncovered'>      return (this._date);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getHref = function getHref() {</span>
+<span class='uncovered'>      return (this.getUrl().href);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.href = Request.prototype.getHref;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getId = function getId() {</span>
+<span class='covered'>      if (this._id !== undefined)</span>
+<span class='uncovered'>          return (this._id);</span>
+<span class='covered'>  </span>
+<span class='covered'>      this._id = this.headers[&#39;request-id&#39;] ||</span>
+<span class='covered'>          this.headers[&#39;x-request-id&#39;] ||</span>
+<span class='covered'>          uuid.v4();</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._id);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.id = Request.prototype.getId;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getPath = function getPath() {</span>
+<span class='covered'>      return (this.getUrl().pathname);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.path = Request.prototype.getPath;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getQuery = function getQuery() {</span>
+<span class='covered'>      return (this.getUrl().query || {});</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.query = Request.prototype.getQuery;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.time = function time() {</span>
+<span class='uncovered'>      return (this._time);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getUrl = function getUrl() {</span>
+<span class='covered'>      if (this._cacheURL !== this.url) {</span>
+<span class='covered'>          this._url = url.parse(this.url);</span>
+<span class='covered'>          this._cacheURL = this.url;</span>
+<span class='covered'>      }</span>
+<span class='covered'>      return (this._url);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.getVersion = function getVersion() {</span>
+<span class='covered'>      if (this._version !== undefined)</span>
+<span class='covered'>          return (this._version);</span>
+<span class='covered'>  </span>
+<span class='covered'>      this._version =</span>
+<span class='covered'>          this.headers[&#39;accept-version&#39;] ||</span>
+<span class='covered'>              this.headers[&#39;x-api-version&#39;] ||</span>
+<span class='covered'>              &#39;*&#39;;</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._version);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  Request.prototype.version = Request.prototype.getVersion;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.header = function header(name, value) {</span>
+<span class='covered'>      assert.string(name, &#39;name&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      name = name.toLowerCase();</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (name === &#39;referer&#39; || name === &#39;referrer&#39;)</span>
+<span class='uncovered'>          name = &#39;referer&#39;;</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this.headers[name] || value);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.trailer = function trailer(name, value) {</span>
+<span class='uncovered'>      assert.string(name, &#39;name&#39;);</span>
+<span class='uncovered'>      name = name.toLowerCase();</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      if (name === &#39;referer&#39; || name === &#39;referrer&#39;)</span>
+<span class='uncovered'>          name = &#39;referer&#39;;</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return ((this.trailers || {})[name] || value);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.is = function is(type) {</span>
+<span class='uncovered'>      assert.string(type, &#39;type&#39;);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      var contentType = this.getContentType();</span>
+<span class='uncovered'>      var matches = true;</span>
+<span class='uncovered'>      if (!contentType)</span>
+<span class='uncovered'>          return (false);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      if (type.indexOf(&#39;/&#39;) === -1)</span>
+<span class='uncovered'>          type = mime.lookup(type);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      if (type.indexOf(&#39;*&#39;) !== -1) {</span>
+<span class='uncovered'>          type = type.split(&#39;/&#39;);</span>
+<span class='uncovered'>          contentType = contentType.split(&#39;/&#39;);</span>
+<span class='uncovered'>          matches &amp;= (type[0] === &#39;*&#39; || type[0] === contentType[0]);</span>
+<span class='uncovered'>          matches &amp;= (type[1] === &#39;*&#39; || type[1] === contentType[1]);</span>
+<span class='covered'>      } else {</span>
+<span class='uncovered'>          matches = (contentType === type);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return (matches);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.isChunked = function isChunked() {</span>
+<span class='covered'>      return (this.headers[&#39;transfer-encoding&#39;] === &#39;chunked&#39;);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.isKeepAlive = function isKeepAlive() {</span>
+<span class='covered'>      if (this._keepAlive !== undefined)</span>
+<span class='uncovered'>          return (this._keepAlive);</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (this.headers.connection) {</span>
+<span class='covered'>          this._keepAlive = /keep-alive/i.test(this.headers.connection);</span>
+<span class='covered'>      } else {</span>
+<span class='uncovered'>          this._keepAlive = this.httpVersion === &#39;1.0&#39; ? false : true;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this._keepAlive);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.isSecure = function isSecure() {</span>
+<span class='uncovered'>      if (this._secure !== undefined)</span>
+<span class='uncovered'>          return (this._secure);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      this._secure = this.connection.encrypted ? true : false;</span>
+<span class='uncovered'>      return (this._secure);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.isUpgradeRequest = function isUpgradeRequest() {</span>
+<span class='covered'>      if (this._upgradeRequest !== undefined)</span>
+<span class='uncovered'>          return (this._upgradeRequest);</span>
+<span class='covered'>      else</span>
+<span class='covered'>          return (false);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.isUpload = function isUpload() {</span>
+<span class='covered'>      var m = this.method;</span>
+<span class='covered'>      return (m === &#39;PATCH&#39; || m === &#39;POST&#39; || m === &#39;PUT&#39;);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.toString = function toString() {</span>
+<span class='uncovered'>      var headers = &#39;&#39;;</span>
+<span class='uncovered'>      var self = this;</span>
+<span class='uncovered'>      var str;</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      Object.keys(this.headers).forEach(function (k) {</span>
+<span class='uncovered'>          headers += sprintf(&#39;%s: %s\n&#39;, k, self.headers[k]);</span>
+<span class='uncovered'>      });</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      str = sprintf(&#39;%s %s HTTP/%s\n%s&#39;,</span>
+<span class='uncovered'>          this.method,</span>
+<span class='uncovered'>          this.url,</span>
+<span class='uncovered'>          this.httpVersion,</span>
+<span class='uncovered'>          headers);</span>
+<span class='covered'>  </span>
+<span class='uncovered'>      return (str);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  Request.prototype.userAgent = function userAgent() {</span>
+<span class='uncovered'>      return (this.headers[&#39;user-agent&#39;]);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * Start the timer for a request handler function. You must explicitly invoke</span>
+<span class='covered'>   * endHandlerTimer() after invoking this function. Otherwise timing information</span>
+<span class='covered'>   * will be inaccurate.</span>
+<span class='covered'>   * @param String handlerName The name of the handler.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  Request.prototype.startHandlerTimer = function startHandlerTimer(handlerName)</span>
+<span class='covered'>  {</span>
+<span class='covered'>      var self = this;</span>
+<span class='covered'>      // For nested handlers, we prepend the top level handler func name</span>
+<span class='covered'>      var name = (self._currentHandler === handlerName ?</span>
+<span class='covered'>                  handlerName : self._currentHandler + &#39;-&#39; + handlerName);</span>
+<span class='covered'>      if (!self._timerMap)</span>
+<span class='covered'>          self._timerMap = {};</span>
+<span class='covered'>  </span>
+<span class='covered'>      self._timerMap[name] = process.hrtime();</span>
+<span class='covered'>  </span>
+<span class='covered'>      dtrace._rstfy_probes[&#39;handler-start&#39;].fire(function () {</span>
+<span class='uncovered'>          return ([</span>
+<span class='uncovered'>              self.serverName,</span>
+<span class='uncovered'>              self._currentRoute, // set in server._run</span>
+<span class='uncovered'>              name,</span>
+<span class='uncovered'>              self._dtraceId</span>
+<span class='uncovered'>          ]);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * Stop the timer for a request handler function.</span>
+<span class='covered'>   * @param String handlerName The name of the handler.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  Request.prototype.endHandlerTimer = function endHandlerTimer(handlerName)</span>
+<span class='covered'>  {</span>
+<span class='covered'>      var self = this;</span>
+<span class='covered'>      // For nested handlers, we prepend the top level handler func name</span>
+<span class='covered'>      var name = (self._currentHandler === handlerName ?</span>
+<span class='covered'>                  handlerName : self._currentHandler + &#39;-&#39; + handlerName);</span>
+<span class='covered'>      if (!self.timers)</span>
+<span class='covered'>          self.timers = [];</span>
+<span class='covered'>  </span>
+<span class='covered'>      self._timerMap[name] = process.hrtime(self._timerMap[name]);</span>
+<span class='covered'>      self.timers.push({</span>
+<span class='covered'>          name: name,</span>
+<span class='covered'>          time: self._timerMap[name]</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      dtrace._rstfy_probes[&#39;handler-done&#39;].fire(function () {</span>
+<span class='uncovered'>          return ([</span>
+<span class='uncovered'>              self.serverName,</span>
+<span class='uncovered'>              self._currentRoute, // set in server._run</span>
+<span class='uncovered'>              name,</span>
+<span class='uncovered'>              self._dtraceId</span>
+<span class='uncovered'>          ]);</span>
+<span class='covered'>      });</span>
+<span class='covered'>  };</span></pre></td>          
+            </tr>
+          </tbody>
+        </table>
+        <a class="index" href="index.html">« index</a> | <a class="coverio" href="http://cover.io">cover.io</a>
+      </div>
+  </body>
+</html>

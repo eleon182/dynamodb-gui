@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/Users/yunong/workspace/node-restify/lib/errors/http_error.js -- cover.io</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+      html, body {
+        font-family: georgia, serif;
+      }
+      
+      .content {
+      }
+      table#files-table {
+        table-layout: fixed;
+        width: 94%;
+      }
+
+      table#files-table td, table#files-table th {
+        width: 11%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      table#files-table td:first-child, table#files-table th:first-child {
+        width: 33%;
+      }
+      
+      .partialuncovered { 
+        background: #EE9; 
+      }
+      
+      pre.prettyprint {
+        padding-top: 0em;
+        border: 5px;
+        padding-left: 0em;
+        padding-bottom: 0em;
+        font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+      }
+       
+      span.covered {
+        border-left: 2px solid lime; 
+      }
+      
+      span.uncovered {
+        background: #FDD;
+        border-left: 2px solid red; 
+      }
+      
+      span.partial {
+        border-left: 2px solid #EE9; 
+        background: #FFA;
+      }
+      
+      div.header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EEE;
+        height: 90px;
+        background: #F8F8F8;
+      }
+      
+      div.header-content {
+        padding: 1em 3em;
+      }
+      
+      a.index {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      a.coverio {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      div.content > a.index {
+        padding-left: 1.5em;
+        padding-bottom: 2em;
+      }
+      
+      div.header-content h3 {
+        font-weight: normal;
+      }
+      
+      span.filename {
+        font-weight: bold;
+      }
+      
+      span.percentage {
+        font-weight: bold;
+      }
+      
+      div.stats {
+        font-size: 13px;
+      }
+      
+      div.stats span.separator {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      div.stats span.stat-descriptor {
+        color: gray;
+      }
+      
+      table.code td.text {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .linenos p {
+        text-align: left;
+        margin: 0;
+        padding-right: 0.5em;
+        color: #999999;
+        font-family: verdana, sans-serif;
+        font-size: 0.8em;   /* 12/16 */
+        line-height: 16px;  /* 16/12 */
+      }
+
+      td.text {
+        width: 100%;
+        height: 16px;
+      }
+      
+      td.text pre > span {
+        padding-top: 3px;
+        line-height: 16px;
+      }
+    
+    </style>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="prettify.js"></script>
+    <script >
+    
+      $(function() {
+        $(".linenos p").css("text-align", "right");
+        setTimeout(function() {
+          prettyPrint();
+        });
+      });
+    </script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+      <div class="content">
+        <div class="header">
+          <div class="header-content">
+            <a class="index" href="index.html">« index</a>
+            <h3>Coverage for <span class="filename">/Users/yunong/workspace/node-restify/lib/errors/http_error.js</span> : <span class="percentage">97%</span></h3>
+            <div class="stats">
+              128  <span class="stat-descriptor">lines</span>     <span class="separator">| </span> 
+              125  <span class="stat-descriptor">run</span>        <span class="separator">| </span> 
+              3  <span class="stat-descriptor">missing</span>    <span class="separator">| </span> 
+              1  <span class="stat-descriptor">partial</span>      <span class="separator">| </span> 
+              14  <span class="stat-descriptor">blocks</span>     <span class="separator">| </span> 
+              13  <span class="stat-descriptor">blocks run</span>  <span class="separator">| </span> 
+              1  <span class="stat-descriptor">blocks missing</span>
+            </div>
+          </div>
+        </div>
+        <table class="code" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class='linenos' valign='top'><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p><p>45</p><p>46</p><p>47</p><p>48</p><p>49</p><p>50</p><p>51</p><p>52</p><p>53</p><p>54</p><p>55</p><p>56</p><p>57</p><p>58</p><p>59</p><p>60</p><p>61</p><p>62</p><p>63</p><p>64</p><p>65</p><p>66</p><p>67</p><p>68</p><p>69</p><p>70</p><p>71</p><p>72</p><p>73</p><p>74</p><p>75</p><p>76</p><p>77</p><p>78</p><p>79</p><p>80</p><p>81</p><p>82</p><p>83</p><p>84</p><p>85</p><p>86</p><p>87</p><p>88</p><p>89</p><p>90</p><p>91</p><p>92</p><p>93</p><p>94</p><p>95</p><p>96</p><p>97</p><p>98</p><p>99</p><p>100</p><p>101</p><p>102</p><p>103</p><p>104</p><p>105</p><p>106</p><p>107</p><p>108</p><p>109</p><p>110</p><p>111</p><p>112</p><p>113</p><p>114</p><p>115</p><p>116</p><p>117</p><p>118</p><p>119</p><p>120</p><p>121</p><p>122</p><p>123</p><p>124</p><p>125</p><p>126</p><p>127</p><p>128</p></td><td class='text' valign='top'><pre class='prettyprint lang-js'><span class='covered'>  // Copyright 2012 Mark Cavage, Inc.  All rights reserved.</span>
+<span class='covered'>  </span>
+<span class='covered'>  var http = require(&#39;http&#39;);</span>
+<span class='covered'>  var util = require(&#39;util&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var assert = require(&#39;assert-plus&#39;);</span>
+<span class='covered'>  var WError = require(&#39;verror&#39;).WError;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Globals</span>
+<span class='covered'>  </span>
+<span class='covered'>  var slice = Function.prototype.call.bind(Array.prototype.slice);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Helpers</span>
+<span class='covered'>  </span>
+<span class='covered'>  function codeToErrorName(code) {</span>
+<span class='covered'>      code = parseInt(code, 10);</span>
+<span class='covered'>      var status = http.STATUS_CODES[code];</span>
+<span class='covered'>      if (!status)</span>
+<span class='covered'>          return (false);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>      var pieces = status.split(/\s+/);</span>
+<span class='covered'>      var str = &#39;&#39;;</span>
+<span class='covered'>      pieces.forEach(function (s) {</span>
+<span class='covered'>          str += s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      str = str.replace(/\W+/g, &#39;&#39;);</span>
+<span class='covered'>      if (!/\w+Error$/.test(str))</span>
+<span class='covered'>          str += &#39;Error&#39;;</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (str);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Error Base class</span>
+<span class='covered'>  </span>
+<span class='covered'>  function HttpError(options) {</span>
+<span class='covered'>      assert.object(options, &#39;options&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      options.constructorOpt = options.constructorOpt || HttpError;</span>
+<span class='covered'>      WError.apply(this, arguments);</span>
+<span class='covered'>  </span>
+<span class='covered'>      var self = this;</span>
+<span class='covered'>      var code = parseInt((options.statusCode || 500), 10);</span>
+<span class='covered'>      this.statusCode = code;</span>
+<span class='covered'>      this.body = options.body || {</span>
+<span class='covered'>          code: codeToErrorName(code),</span>
+<span class='covered'>          message: options.message || self.message</span>
+<span class='covered'>      };</span>
+<span class='covered'>      this.message = options.message || self.message;</span>
+<span class='covered'>  }</span>
+<span class='covered'>  util.inherits(HttpError, WError);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Exports</span>
+<span class='covered'>  </span>
+<span class='covered'>  module.exports = {</span>
+<span class='covered'>  </span>
+<span class='covered'>      HttpError: HttpError,</span>
+<span class='covered'>  </span>
+<span class='covered'>      codeToHttpError: function codeToHttpError(code, message, body) {</span>
+<span class='covered'>          var err;</span>
+<span class='covered'>          var name = codeToErrorName(code);</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (!name) {</span>
+<span class='covered'>              err = new HttpError({</span>
+<span class='covered'>                  statusCode: code,</span>
+<span class='covered'>                  message: message,</span>
+<span class='covered'>                  body: body</span>
+<span class='covered'>              });</span>
+<span class='covered'>              err.name = &#39;Http&#39; + code + &#39;Error&#39;;</span>
+<span class='covered'>          } else {</span>
+<span class='covered'>              err = new module.exports[name]({</span>
+<span class='covered'>                  body: body,</span>
+<span class='covered'>                  message: message,</span>
+<span class='covered'>                  constructorOpt: codeToHttpError,</span>
+<span class='covered'>                  statusCode: code</span>
+<span class='covered'>              });</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          return (err);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  // Export all the 4xx and 5xx HTTP Status codes as Errors</span>
+<span class='covered'>  var codes = Object.keys(http.STATUS_CODES);</span>
+<span class='covered'>  </span>
+<span class='covered'>  codes.forEach(function (code) {</span>
+<span class='covered'>      if (code &lt; 400)</span>
+<span class='covered'>          return;</span>
+<span class='covered'>  </span>
+<span class='covered'>      var name = codeToErrorName(code);</span>
+<span class='covered'>  </span>
+<span class='covered'>      module.exports[name] = function (cause, message) {</span>
+<span class='covered'>          var index = 1;</span>
+<span class='covered'>          var opts = {</span>
+<span class='covered'>              statusCode: code</span>
+<span class='covered'>          };</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (cause &amp;&amp; cause instanceof Error) {</span>
+<span class='uncovered'>              opts.cause = cause;</span>
+<span class='uncovered'>              opts.constructorOpt = arguments.callee;</span>
+<span class='covered'>          } else if (typeof (cause) === &#39;object&#39;) {</span>
+<span class='covered'>              opts.body = cause.body;</span>
+<span class='covered'>              opts.cause = cause.cause;</span>
+<span class='covered'>              opts.constructorOpt = cause.constructorOpt;</span>
+<span class='covered'>              opts.message = cause.message;</span>
+<span class='partial'>              opts.statusCode = cause.statusCode || <span class='partialuncovered'>code;</span></span>
+<span class='covered'>          } else {</span>
+<span class='covered'>              opts.constructorOpt = arguments.callee;</span>
+<span class='covered'>              index = 0;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          var args = slice(arguments, index);</span>
+<span class='covered'>          args.unshift(opts);</span>
+<span class='covered'>          HttpError.apply(this, args);</span>
+<span class='covered'>      };</span>
+<span class='covered'>      util.inherits(module.exports[name], HttpError);</span>
+<span class='covered'>  </span>
+<span class='covered'>      module.exports[name].displayName =</span>
+<span class='covered'>          module.exports[name].prototype.name =</span>
+<span class='covered'>              name;</span>
+<span class='covered'>  });</span></pre></td>          
+            </tr>
+          </tbody>
+        </table>
+        <a class="index" href="index.html">« index</a> | <a class="coverio" href="http://cover.io">cover.io</a>
+      </div>
+  </body>
+</html>

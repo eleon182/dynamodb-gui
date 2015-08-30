@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/Users/yunong/workspace/node-restify/lib/plugins/audit.js -- cover.io</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+      html, body {
+        font-family: georgia, serif;
+      }
+      
+      .content {
+      }
+      table#files-table {
+        table-layout: fixed;
+        width: 94%;
+      }
+
+      table#files-table td, table#files-table th {
+        width: 11%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      table#files-table td:first-child, table#files-table th:first-child {
+        width: 33%;
+      }
+      
+      .partialuncovered { 
+        background: #EE9; 
+      }
+      
+      pre.prettyprint {
+        padding-top: 0em;
+        border: 5px;
+        padding-left: 0em;
+        padding-bottom: 0em;
+        font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+      }
+       
+      span.covered {
+        border-left: 2px solid lime; 
+      }
+      
+      span.uncovered {
+        background: #FDD;
+        border-left: 2px solid red; 
+      }
+      
+      span.partial {
+        border-left: 2px solid #EE9; 
+        background: #FFA;
+      }
+      
+      div.header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EEE;
+        height: 90px;
+        background: #F8F8F8;
+      }
+      
+      div.header-content {
+        padding: 1em 3em;
+      }
+      
+      a.index {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      a.coverio {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      div.content > a.index {
+        padding-left: 1.5em;
+        padding-bottom: 2em;
+      }
+      
+      div.header-content h3 {
+        font-weight: normal;
+      }
+      
+      span.filename {
+        font-weight: bold;
+      }
+      
+      span.percentage {
+        font-weight: bold;
+      }
+      
+      div.stats {
+        font-size: 13px;
+      }
+      
+      div.stats span.separator {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      div.stats span.stat-descriptor {
+        color: gray;
+      }
+      
+      table.code td.text {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .linenos p {
+        text-align: left;
+        margin: 0;
+        padding-right: 0.5em;
+        color: #999999;
+        font-family: verdana, sans-serif;
+        font-size: 0.8em;   /* 12/16 */
+        line-height: 16px;  /* 16/12 */
+      }
+
+      td.text {
+        width: 100%;
+        height: 16px;
+      }
+      
+      td.text pre > span {
+        padding-top: 3px;
+        line-height: 16px;
+      }
+    
+    </style>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="prettify.js"></script>
+    <script >
+    
+      $(function() {
+        $(".linenos p").css("text-align", "right");
+        setTimeout(function() {
+          prettyPrint();
+        });
+      });
+    </script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+      <div class="content">
+        <div class="header">
+          <div class="header-content">
+            <a class="index" href="index.html">« index</a>
+            <h3>Coverage for <span class="filename">/Users/yunong/workspace/node-restify/lib/plugins/audit.js</span> : <span class="percentage">93%</span></h3>
+            <div class="stats">
+              110  <span class="stat-descriptor">lines</span>     <span class="separator">| </span> 
+              103  <span class="stat-descriptor">run</span>        <span class="separator">| </span> 
+              7  <span class="stat-descriptor">missing</span>    <span class="separator">| </span> 
+              1  <span class="stat-descriptor">partial</span>      <span class="separator">| </span> 
+              12  <span class="stat-descriptor">blocks</span>     <span class="separator">| </span> 
+              6  <span class="stat-descriptor">blocks run</span>  <span class="separator">| </span> 
+              6  <span class="stat-descriptor">blocks missing</span>
+            </div>
+          </div>
+        </div>
+        <table class="code" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class='linenos' valign='top'><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p><p>45</p><p>46</p><p>47</p><p>48</p><p>49</p><p>50</p><p>51</p><p>52</p><p>53</p><p>54</p><p>55</p><p>56</p><p>57</p><p>58</p><p>59</p><p>60</p><p>61</p><p>62</p><p>63</p><p>64</p><p>65</p><p>66</p><p>67</p><p>68</p><p>69</p><p>70</p><p>71</p><p>72</p><p>73</p><p>74</p><p>75</p><p>76</p><p>77</p><p>78</p><p>79</p><p>80</p><p>81</p><p>82</p><p>83</p><p>84</p><p>85</p><p>86</p><p>87</p><p>88</p><p>89</p><p>90</p><p>91</p><p>92</p><p>93</p><p>94</p><p>95</p><p>96</p><p>97</p><p>98</p><p>99</p><p>100</p><p>101</p><p>102</p><p>103</p><p>104</p><p>105</p><p>106</p><p>107</p><p>108</p><p>109</p><p>110</p></td><td class='text' valign='top'><pre class='prettyprint lang-js'><span class='covered'>  // Copyright 2012 Mark Cavage, Inc.  All rights reserved.</span>
+<span class='covered'>  </span>
+<span class='covered'>  var assert = require(&#39;assert-plus&#39;);</span>
+<span class='covered'>  var bunyan = require(&#39;bunyan&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var HttpError = require(&#39;../errors&#39;).HttpError;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- API</span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * Returns a Bunyan audit logger suitable to be used in a server.on(&#39;after&#39;)</span>
+<span class='covered'>   * event.  I.e.:</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * server.on(&#39;after&#39;, restify.auditLogger({ log: myAuditStream }));</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * This logs at the INFO level.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * @param {Object} options at least a bunyan logger (log).</span>
+<span class='covered'>   * @return {Function} to be used in server.after.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  function auditLogger(options) {</span>
+<span class='covered'>      assert.object(options, &#39;options&#39;);</span>
+<span class='covered'>      assert.object(options.log, &#39;options.log&#39;);</span>
+<span class='covered'>      var errSerializer = bunyan.stdSerializers.err;</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (options.log.serializers &amp;&amp; options.log.serializers.err) {</span>
+<span class='uncovered'>          errSerializer = options.log.serializers.err;</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      var log = options.log.child({</span>
+<span class='covered'>          audit: true,</span>
+<span class='covered'>          serializers: {</span>
+<span class='covered'>              err: errSerializer,</span>
+<span class='covered'>              req: function auditRequestSerializer(req) {</span>
+<span class='covered'>                  if (!req)</span>
+<span class='uncovered'>                      return (false);</span>
+<span class='covered'>  </span>
+<span class='covered'>                  var timers = {};</span>
+<span class='covered'>                  (req.timers || []).forEach(function (time) {</span>
+<span class='covered'>                      var t = time.time;</span>
+<span class='covered'>                      var _t = Math.floor((1000000 * t[0]) +</span>
+<span class='covered'>                          (t[1] / 1000));</span>
+<span class='covered'>                      timers[time.name] = _t;</span>
+<span class='covered'>                  });</span>
+<span class='covered'>                  return ({</span>
+<span class='covered'>                      method: req.method,</span>
+<span class='covered'>                      url: req.url,</span>
+<span class='covered'>                      headers: req.headers,</span>
+<span class='covered'>                      httpVersion: req.httpVersion,</span>
+<span class='covered'>                      trailers: req.trailers,</span>
+<span class='covered'>                      version: req.version(),</span>
+<span class='covered'>                      body: options.body === true ?</span>
+<span class='partial'>                          <span class='partialuncovered'>req.body </span>: undefined,</span>
+<span class='covered'>                      timers: timers</span>
+<span class='covered'>                  });</span>
+<span class='covered'>              },</span>
+<span class='covered'>              res: function auditResponseSerializer(res) {</span>
+<span class='covered'>                  if (!res)</span>
+<span class='uncovered'>                      return (false);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>                  var body;</span>
+<span class='covered'>                  if (options.body === true) {</span>
+<span class='uncovered'>                      if (res._body instanceof HttpError) {</span>
+<span class='uncovered'>                          body = res._body.body;</span>
+<span class='covered'>                      } else {</span>
+<span class='uncovered'>                          body = res._body;</span>
+<span class='covered'>                      }</span>
+<span class='covered'>                  }</span>
+<span class='covered'>  </span>
+<span class='covered'>                  return ({</span>
+<span class='covered'>                      statusCode: res.statusCode,</span>
+<span class='covered'>                      headers: res._headers,</span>
+<span class='covered'>                      trailer: res._trailer || false,</span>
+<span class='covered'>                      body: body</span>
+<span class='covered'>                  });</span>
+<span class='covered'>              }</span>
+<span class='covered'>          }</span>
+<span class='covered'>      });</span>
+<span class='covered'>  </span>
+<span class='covered'>      function audit(req, res, route, err) {</span>
+<span class='covered'>          var latency = res.get(&#39;Response-Time&#39;);</span>
+<span class='covered'>          if (typeof (latency) !== &#39;number&#39;)</span>
+<span class='covered'>              latency = Date.now() - req._time;</span>
+<span class='covered'>  </span>
+<span class='covered'>          var obj = {</span>
+<span class='covered'>              remoteAddress: req.connection.remoteAddress,</span>
+<span class='covered'>              remotePort: req.connection.remotePort,</span>
+<span class='covered'>              req_id: req.getId(),</span>
+<span class='covered'>              req: req,</span>
+<span class='covered'>              res: res,</span>
+<span class='covered'>              err: err,</span>
+<span class='covered'>              latency: latency,</span>
+<span class='covered'>              secure: req.secure,</span>
+<span class='covered'>              _audit: true</span>
+<span class='covered'>          };</span>
+<span class='covered'>  </span>
+<span class='covered'>          log.info(obj, &#39;handled: %d&#39;, res.statusCode);</span>
+<span class='covered'>  </span>
+<span class='covered'>          return (true);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (audit);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///-- Exports</span>
+<span class='covered'>  </span>
+<span class='covered'>  module.exports = auditLogger;</span></pre></td>          
+            </tr>
+          </tbody>
+        </table>
+        <a class="index" href="index.html">« index</a> | <a class="coverio" href="http://cover.io">cover.io</a>
+      </div>
+  </body>
+</html>

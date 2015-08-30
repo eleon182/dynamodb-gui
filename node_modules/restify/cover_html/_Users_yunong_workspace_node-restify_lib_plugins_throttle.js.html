@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/Users/yunong/workspace/node-restify/lib/plugins/throttle.js -- cover.io</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+      html, body {
+        font-family: georgia, serif;
+      }
+      
+      .content {
+      }
+      table#files-table {
+        table-layout: fixed;
+        width: 94%;
+      }
+
+      table#files-table td, table#files-table th {
+        width: 11%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      table#files-table td:first-child, table#files-table th:first-child {
+        width: 33%;
+      }
+      
+      .partialuncovered { 
+        background: #EE9; 
+      }
+      
+      pre.prettyprint {
+        padding-top: 0em;
+        border: 5px;
+        padding-left: 0em;
+        padding-bottom: 0em;
+        font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+      }
+       
+      span.covered {
+        border-left: 2px solid lime; 
+      }
+      
+      span.uncovered {
+        background: #FDD;
+        border-left: 2px solid red; 
+      }
+      
+      span.partial {
+        border-left: 2px solid #EE9; 
+        background: #FFA;
+      }
+      
+      div.header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #EEE;
+        height: 90px;
+        background: #F8F8F8;
+      }
+      
+      div.header-content {
+        padding: 1em 3em;
+      }
+      
+      a.index {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      a.coverio {
+        text-decoration: none;
+        color: inherit;
+        font-size: 11px;
+      }
+      
+      div.content > a.index {
+        padding-left: 1.5em;
+        padding-bottom: 2em;
+      }
+      
+      div.header-content h3 {
+        font-weight: normal;
+      }
+      
+      span.filename {
+        font-weight: bold;
+      }
+      
+      span.percentage {
+        font-weight: bold;
+      }
+      
+      div.stats {
+        font-size: 13px;
+      }
+      
+      div.stats span.separator {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      div.stats span.stat-descriptor {
+        color: gray;
+      }
+      
+      table.code td.text {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .linenos p {
+        text-align: left;
+        margin: 0;
+        padding-right: 0.5em;
+        color: #999999;
+        font-family: verdana, sans-serif;
+        font-size: 0.8em;   /* 12/16 */
+        line-height: 16px;  /* 16/12 */
+      }
+
+      td.text {
+        width: 100%;
+        height: 16px;
+      }
+      
+      td.text pre > span {
+        padding-top: 3px;
+        line-height: 16px;
+      }
+    
+    </style>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="prettify.js"></script>
+    <script >
+    
+      $(function() {
+        $(".linenos p").css("text-align", "right");
+        setTimeout(function() {
+          prettyPrint();
+        });
+      });
+    </script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+      <div class="content">
+        <div class="header">
+          <div class="header-content">
+            <a class="index" href="index.html">« index</a>
+            <h3>Coverage for <span class="filename">/Users/yunong/workspace/node-restify/lib/plugins/throttle.js</span> : <span class="percentage">96%</span></h3>
+            <div class="stats">
+              261  <span class="stat-descriptor">lines</span>     <span class="separator">| </span> 
+              252  <span class="stat-descriptor">run</span>        <span class="separator">| </span> 
+              9  <span class="stat-descriptor">missing</span>    <span class="separator">| </span> 
+              1  <span class="stat-descriptor">partial</span>      <span class="separator">| </span> 
+              25  <span class="stat-descriptor">blocks</span>     <span class="separator">| </span> 
+              18  <span class="stat-descriptor">blocks run</span>  <span class="separator">| </span> 
+              7  <span class="stat-descriptor">blocks missing</span>
+            </div>
+          </div>
+        </div>
+        <table class="code" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class='linenos' valign='top'><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p><p>45</p><p>46</p><p>47</p><p>48</p><p>49</p><p>50</p><p>51</p><p>52</p><p>53</p><p>54</p><p>55</p><p>56</p><p>57</p><p>58</p><p>59</p><p>60</p><p>61</p><p>62</p><p>63</p><p>64</p><p>65</p><p>66</p><p>67</p><p>68</p><p>69</p><p>70</p><p>71</p><p>72</p><p>73</p><p>74</p><p>75</p><p>76</p><p>77</p><p>78</p><p>79</p><p>80</p><p>81</p><p>82</p><p>83</p><p>84</p><p>85</p><p>86</p><p>87</p><p>88</p><p>89</p><p>90</p><p>91</p><p>92</p><p>93</p><p>94</p><p>95</p><p>96</p><p>97</p><p>98</p><p>99</p><p>100</p><p>101</p><p>102</p><p>103</p><p>104</p><p>105</p><p>106</p><p>107</p><p>108</p><p>109</p><p>110</p><p>111</p><p>112</p><p>113</p><p>114</p><p>115</p><p>116</p><p>117</p><p>118</p><p>119</p><p>120</p><p>121</p><p>122</p><p>123</p><p>124</p><p>125</p><p>126</p><p>127</p><p>128</p><p>129</p><p>130</p><p>131</p><p>132</p><p>133</p><p>134</p><p>135</p><p>136</p><p>137</p><p>138</p><p>139</p><p>140</p><p>141</p><p>142</p><p>143</p><p>144</p><p>145</p><p>146</p><p>147</p><p>148</p><p>149</p><p>150</p><p>151</p><p>152</p><p>153</p><p>154</p><p>155</p><p>156</p><p>157</p><p>158</p><p>159</p><p>160</p><p>161</p><p>162</p><p>163</p><p>164</p><p>165</p><p>166</p><p>167</p><p>168</p><p>169</p><p>170</p><p>171</p><p>172</p><p>173</p><p>174</p><p>175</p><p>176</p><p>177</p><p>178</p><p>179</p><p>180</p><p>181</p><p>182</p><p>183</p><p>184</p><p>185</p><p>186</p><p>187</p><p>188</p><p>189</p><p>190</p><p>191</p><p>192</p><p>193</p><p>194</p><p>195</p><p>196</p><p>197</p><p>198</p><p>199</p><p>200</p><p>201</p><p>202</p><p>203</p><p>204</p><p>205</p><p>206</p><p>207</p><p>208</p><p>209</p><p>210</p><p>211</p><p>212</p><p>213</p><p>214</p><p>215</p><p>216</p><p>217</p><p>218</p><p>219</p><p>220</p><p>221</p><p>222</p><p>223</p><p>224</p><p>225</p><p>226</p><p>227</p><p>228</p><p>229</p><p>230</p><p>231</p><p>232</p><p>233</p><p>234</p><p>235</p><p>236</p><p>237</p><p>238</p><p>239</p><p>240</p><p>241</p><p>242</p><p>243</p><p>244</p><p>245</p><p>246</p><p>247</p><p>248</p><p>249</p><p>250</p><p>251</p><p>252</p><p>253</p><p>254</p><p>255</p><p>256</p><p>257</p><p>258</p><p>259</p><p>260</p><p>261</p></td><td class='text' valign='top'><pre class='prettyprint lang-js'><span class='covered'>  // Copyright 2012 Mark Cavage &lt;mcavage@gmail.com&gt; All rights reserved.</span>
+<span class='covered'>  </span>
+<span class='covered'>  var sprintf = require(&#39;util&#39;).format;</span>
+<span class='covered'>  </span>
+<span class='covered'>  var assert = require(&#39;assert-plus&#39;);</span>
+<span class='covered'>  var LRU = require(&#39;lru-cache&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  var errors = require(&#39;../errors&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Globals</span>
+<span class='covered'>  </span>
+<span class='covered'>  var TooManyRequestsError = errors.TooManyRequestsError;</span>
+<span class='covered'>  </span>
+<span class='covered'>  var MESSAGE = &#39;You have exceeded your request rate of %s r/s.&#39;;</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Helpers</span>
+<span class='covered'>  </span>
+<span class='covered'>  function xor() {</span>
+<span class='covered'>      var x = false;</span>
+<span class='covered'>      for (var i = 0; i &lt; arguments.length; i++) {</span>
+<span class='covered'>          if (arguments[i] &amp;&amp; !x)</span>
+<span class='covered'>              x = true;</span>
+<span class='partial'>          else if (arguments[i] &amp;&amp; <span class='partialuncovered'>x)</span></span>
+<span class='uncovered'>              return (false);</span>
+<span class='covered'>      }</span>
+<span class='covered'>      return (x);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Internal Class (TokenBucket)</span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * An implementation of the Token Bucket algorithm.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * Basically, in network throttling, there are two &quot;mainstream&quot;</span>
+<span class='covered'>   * algorithms for throttling requests, Token Bucket and Leaky Bucket.</span>
+<span class='covered'>   * For restify, I went with Token Bucket.  For a good description of the</span>
+<span class='covered'>   * algorithm, see: http://en.wikipedia.org/wiki/Token_bucket</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * In the options object, you pass in the total tokens and the fill rate.</span>
+<span class='covered'>   * Practically speaking, this means &quot;allow `fill rate` requests/second,</span>
+<span class='covered'>   * with bursts up to `total tokens`&quot;.  Note that the bucket is initialized</span>
+<span class='covered'>   * to full.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * Also, in googling, I came across a concise python implementation, so this</span>
+<span class='covered'>   * is just a port of that. Thanks http://code.activestate.com/recipes/511490 !</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * @param {Object} options contains the parameters:</span>
+<span class='covered'>   *                   - {Number} capacity the maximum burst.</span>
+<span class='covered'>   *                   - {Number} fillRate the rate to refill tokens.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  function TokenBucket(options) {</span>
+<span class='covered'>      assert.object(options, &#39;options&#39;);</span>
+<span class='covered'>      assert.number(options.capacity, &#39;options.capacity&#39;);</span>
+<span class='covered'>      assert.number(options.fillRate, &#39;options.fillRate&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      this.tokens = this.capacity = options.capacity;</span>
+<span class='covered'>      this.fillRate = options.fillRate;</span>
+<span class='covered'>      this.time = Date.now();</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * Consume N tokens from the bucket.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * If there is not capacity, the tokens are not pulled from the bucket.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * @param {Number} tokens the number of tokens to pull out.</span>
+<span class='covered'>   * @return {Boolean} true if capacity, false otherwise.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  TokenBucket.prototype.consume = function consume(tokens) {</span>
+<span class='covered'>      if (tokens &lt;= this._fill()) {</span>
+<span class='covered'>          this.tokens -= tokens;</span>
+<span class='covered'>          return (true);</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (false);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * Fills the bucket with more tokens.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * Rather than do some whacky setTimeout() deal, we just approximate refilling</span>
+<span class='covered'>   * the bucket by tracking elapsed time from the last time we touched the bucket.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * Simply, we set the bucket size to min(totalTokens,</span>
+<span class='covered'>   *                                       current + (fillRate * elapsed time)).</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * @return {Number} the current number of tokens in the bucket.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  TokenBucket.prototype._fill = function _fill() {</span>
+<span class='covered'>      var now = Date.now();</span>
+<span class='covered'>      if (now &lt; this.time) // reset account for clock drift (like DST)</span>
+<span class='uncovered'>          this.time = now - 1000;</span>
+<span class='covered'>  </span>
+<span class='covered'>      if (this.tokens &lt; this.capacity) {</span>
+<span class='covered'>          var delta = this.fillRate * ((now - this.time) / 1000);</span>
+<span class='covered'>          this.tokens = Math.min(this.capacity, this.tokens + delta);</span>
+<span class='covered'>      }</span>
+<span class='covered'>      this.time = now;</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (this.tokens);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Internal Class (TokenTable)</span>
+<span class='covered'>  // Just a wrapper over LRU that supports put/get to store token -&gt; bucket</span>
+<span class='covered'>  // mappings</span>
+<span class='covered'>  </span>
+<span class='covered'>  function TokenTable(options) {</span>
+<span class='covered'>      assert.object(options, &#39;options&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      this.table = new LRU(options.size || 10000);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  TokenTable.prototype.put = function put(key, value) {</span>
+<span class='covered'>      this.table.set(key, value);</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  TokenTable.prototype.get = function get(key) {</span>
+<span class='covered'>      return (this.table.get(key));</span>
+<span class='covered'>  };</span>
+<span class='covered'>  </span>
+<span class='covered'>  </span>
+<span class='covered'>  ///--- Exported API</span>
+<span class='covered'>  </span>
+<span class='covered'>  /**</span>
+<span class='covered'>   * Creates an API rate limiter that can be plugged into the standard</span>
+<span class='covered'>   * restify request handling pipeline.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * This throttle gives you three options on which to throttle:</span>
+<span class='covered'>   * username, IP address and &#39;X-Forwarded-For&#39;. IP/XFF is a /32 match,</span>
+<span class='covered'>   * so keep that in mind if using it.  Username takes the user specified</span>
+<span class='covered'>   * on req.username (which gets automagically set for supported Authorization</span>
+<span class='covered'>   * types; otherwise set it yourself with a filter that runs before this).</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * In both cases, you can set a `burst` and a `rate` (in requests/seconds),</span>
+<span class='covered'>   * as an integer/float.  Those really translate to the `TokenBucket`</span>
+<span class='covered'>   * algorithm, so read up on that (or see the comments above...).</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * In either case, the top level options burst/rate set a blanket throttling</span>
+<span class='covered'>   * rate, and then you can pass in an `overrides` object with rates for</span>
+<span class='covered'>   * specific users/IPs.  You should use overrides sparingly, as we make a new</span>
+<span class='covered'>   * TokenBucket to track each.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * On the `options` object ip and username are treated as an XOR.</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * An example options object with overrides:</span>
+<span class='covered'>   *</span>
+<span class='covered'>   *  {</span>
+<span class='covered'>   *    burst: 10,  // Max 10 concurrent requests (if tokens)</span>
+<span class='covered'>   *    rate: 0.5,  // Steady state: 1 request / 2 seconds</span>
+<span class='covered'>   *    ip: true,   // throttle per IP</span>
+<span class='covered'>   *    overrides: {</span>
+<span class='covered'>   *      &#39;192.168.1.1&#39;: {</span>
+<span class='covered'>   *        burst: 0,</span>
+<span class='covered'>   *        rate: 0    // unlimited</span>
+<span class='covered'>   *    }</span>
+<span class='covered'>   *  }</span>
+<span class='covered'>   *</span>
+<span class='covered'>   *</span>
+<span class='covered'>   * @param {Object} options required options with:</span>
+<span class='covered'>   *                   - {Number} burst (required).</span>
+<span class='covered'>   *                   - {Number} rate (required).</span>
+<span class='covered'>   *                   - {Boolean} ip (optional).</span>
+<span class='covered'>   *                   - {Boolean} username (optional).</span>
+<span class='covered'>   *                   - {Boolean} xff (optional).</span>
+<span class='covered'>   *                   - {Object} overrides (optional).</span>
+<span class='covered'>   *                   - {Object} tokensTable: a storage engine this plugin will</span>
+<span class='covered'>   *                              use to store throttling keys -&gt; bucket mappings.</span>
+<span class='covered'>   *                              If you don&#39;t specify this, the default is to</span>
+<span class='covered'>   *                              use an in-memory O(1) LRU, with 10k distinct</span>
+<span class='covered'>   *                              keys.  Any implementation just needs to support</span>
+<span class='covered'>   *                              put/get.</span>
+<span class='covered'>   *                   - {Number} maxKeys: If using the default implementation,</span>
+<span class='covered'>   *                              you can specify how large you want the table to</span>
+<span class='covered'>   *                              be.  Default is 10000.</span>
+<span class='covered'>   * @return {Function} of type f(req, res, next) to be plugged into a route.</span>
+<span class='covered'>   * @throws {TypeError} on bad input.</span>
+<span class='covered'>   */</span>
+<span class='covered'>  function throttle(options) {</span>
+<span class='covered'>      assert.object(options, &#39;options&#39;);</span>
+<span class='covered'>      assert.number(options.burst, &#39;options.burst&#39;);</span>
+<span class='covered'>      assert.number(options.rate, &#39;options.rate&#39;);</span>
+<span class='covered'>      if (!xor(options.ip, options.xff, options.username))</span>
+<span class='uncovered'>          throw new Error(&#39;(ip ^ username ^ xff)&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>      var table = options.tokensTable ||</span>
+<span class='covered'>          new TokenTable({size: options.maxKeys});</span>
+<span class='covered'>  </span>
+<span class='covered'>      function rateLimit(req, res, next) {</span>
+<span class='covered'>          var attr;</span>
+<span class='covered'>          var burst = options.burst;</span>
+<span class='covered'>          var rate = options.rate;</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (options.ip) {</span>
+<span class='uncovered'>              attr = req.connection.remoteAddress;</span>
+<span class='covered'>          } else if (options.xff) {</span>
+<span class='uncovered'>              attr = req.headers[&#39;x-forwarded-for&#39;];</span>
+<span class='covered'>          } else if (options.username) {</span>
+<span class='covered'>              attr = req.username;</span>
+<span class='covered'>          } else {</span>
+<span class='uncovered'>              req.log.warn({config: options},</span>
+<span class='uncovered'>                  &#39;Invalid throttle configuration&#39;);</span>
+<span class='uncovered'>              return (next());</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          // Before bothering with overrides, see if this request</span>
+<span class='covered'>          // even matches</span>
+<span class='covered'>          if (!attr)</span>
+<span class='uncovered'>              return (next());</span>
+<span class='covered'>  </span>
+<span class='covered'>          // Check the overrides</span>
+<span class='covered'>          if (options.overrides &amp;&amp;</span>
+<span class='covered'>              options.overrides[attr] &amp;&amp;</span>
+<span class='covered'>              options.overrides[attr].burst !== undefined &amp;&amp;</span>
+<span class='covered'>              options.overrides[attr].rate !== undefined) {</span>
+<span class='covered'>  </span>
+<span class='covered'>              burst = options.overrides[attr].burst;</span>
+<span class='covered'>              rate = options.overrides[attr].rate;</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (!rate || !burst)</span>
+<span class='covered'>              return (next());</span>
+<span class='covered'>  </span>
+<span class='covered'>          var bucket = table.get(attr);</span>
+<span class='covered'>          if (!bucket) {</span>
+<span class='covered'>              bucket = new TokenBucket({</span>
+<span class='covered'>                  capacity: burst,</span>
+<span class='covered'>                  fillRate: rate</span>
+<span class='covered'>              });</span>
+<span class='covered'>              table.put(attr, bucket);</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          req.log.trace(&#39;Throttle(%s): num_tokens= %d&#39;,</span>
+<span class='covered'>              attr, bucket.tokens);</span>
+<span class='covered'>  </span>
+<span class='covered'>          if (!bucket.consume(1)) {</span>
+<span class='covered'>              req.log.info({</span>
+<span class='covered'>                  address: req.connection.remoteAddress || &#39;?&#39;,</span>
+<span class='covered'>                  method: req.method,</span>
+<span class='covered'>                  url: req.url,</span>
+<span class='covered'>                  user: req.username || &#39;?&#39;</span>
+<span class='covered'>              }, &#39;Throttling&#39;);</span>
+<span class='covered'>  </span>
+<span class='covered'>              var msg = sprintf(MESSAGE, rate);</span>
+<span class='covered'>              return (next(new TooManyRequestsError(msg)));</span>
+<span class='covered'>          }</span>
+<span class='covered'>  </span>
+<span class='covered'>          return (next());</span>
+<span class='covered'>      }</span>
+<span class='covered'>  </span>
+<span class='covered'>      return (rateLimit);</span>
+<span class='covered'>  }</span>
+<span class='covered'>  </span>
+<span class='covered'>  module.exports = throttle;</span></pre></td>          
+            </tr>
+          </tbody>
+        </table>
+        <a class="index" href="index.html">« index</a> | <a class="coverio" href="http://cover.io">cover.io</a>
+      </div>
+  </body>
+</html>
