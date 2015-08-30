@@ -41,6 +41,12 @@ function getRoutes() {
             templateUrl: '/app/pages/home/home.html'
         }
     }, {
+        url: '/read',
+        config: {
+            title: 'Read',
+            templateUrl: '/app/pages/read/read.html'
+        }
+    }, {
         url: '/tables',
         config: {
             title: 'Tables',

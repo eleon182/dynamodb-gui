@@ -6,7 +6,7 @@
   "author": "Esteban Leon",
   "private": true,
   "scripts": {
-    "start": "DEBUG=main nodemon -e js --exec sh bin/execute.sh",
+    "start": "AWS_PROFILE=steve DEBUG=main nodemon -e js --exec sh bin/execute.sh",
     "postinstall": "bower install"
   },
   "devDependencies": {

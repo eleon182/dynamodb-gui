@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use('/api/table', api.table);
+app.use('/api/read', api.read);
 app.use('/api/version', function(req, res) {
     exec('git log --stat -1', function(error, stdout, stderr) {
         if (error) {
