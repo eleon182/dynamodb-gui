@@ -1,2 +1,2 @@
-# registration-tools-BE
-UI-tools for project corvette - Back End
+# AWS DynamoDB GUI Client
+GUI Tool used to interact with DynamoDB

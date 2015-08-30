@@ -12,7 +12,7 @@ var app = express();
 var api = require('./api');
 
 console.log('========================================');
-console.log('RUNNING REGISTRATION SERVER');
+console.log('RUNNING SERVER');
 console.log('========================================');
 
 // view engine setup
