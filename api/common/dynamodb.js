@@ -17,9 +17,22 @@ module.exports = {
     putItem: putItem,
     deleteItem: deleteItem,
     query: query,
-    updateItem: updateItem
+    updateItem: updateItem,
+    listTables: listTables
 };
 
+function listTables(params){
+    var deferred = q.defer();
+
+    db.listTables(params, function(err, data) {
+        if (err) {
+            deferred.reject(err);
+        } else {
+            deferred.resolve(data);
+        }
+    });
+    return deferred.promise;
+}
 function updateItem(key, expression, values, table) {
     var deferred = q.defer();
     var params = {
