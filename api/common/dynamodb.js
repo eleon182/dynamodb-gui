@@ -1,7 +1,9 @@
 var AWS = require('aws-sdk');
 var debug = require('debug')('main');
 var lo = require('lodash');
+var async = require('async');
 var q = require('q');
+
 AWS.config.update({
     region: 'us-west-2',
     // profile: 'steve'
@@ -18,21 +20,71 @@ module.exports = {
     deleteItem: deleteItem,
     query: query,
     updateItem: updateItem,
-    listTables: listTables
+    listTables: listTables,
+    describeTable: describeTable
 };
 
-function listTables(params){
+function describeTable(table){
     var deferred = q.defer();
-
-    db.listTables(params, function(err, data) {
-        if (err) {
+    var params = {
+        TableName: table
+    };
+    db.describeTable(params, function(err, data){
+        if(err){
             deferred.reject(err);
-        } else {
+        }
+        else {
             deferred.resolve(data);
         }
     });
     return deferred.promise;
 }
+
+function listTables() {
+    var response = [];
+    var repeat = true;
+    var LastEvaluatedTableName;
+    var deferred = q.defer();
+    var params = {};
+
+    async.whilst(
+        function() {
+            return repeat;
+        },
+        function(callback) {
+            if (LastEvaluatedTableName) {
+                params = {
+                    ExclusiveStartTableName: LastEvaluatedTableName
+                };
+            } else {
+                params = {};
+            }
+            db.listTables(params, function(err, data) {
+                if (data.LastEvaluatedTableName) {
+                    LastEvaluatedTableName = data.LastEvaluatedTableName;
+                    repeat = true;
+                } else {
+                    repeat = false;
+                }
+                if (err) {
+                    callback();
+                } else {
+                    response = lo.union(response, data.TableNames);
+                    callback();
+                }
+            });
+        },
+        function(err) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(response);
+            }
+        });
+
+    return deferred.promise;
+}
+
 function updateItem(key, expression, values, table) {
     var deferred = q.defer();
     var params = {

@@ -31,38 +31,8 @@ function getRoutes() {
     return [{
         url: '/',
         config: {
-            title: 'Login',
-            templateUrl: '/app/pages/login/login.html'
-        }
-    }, {
-        url: '/completeResetPassword',
-        config: {
-            title: 'Complete Forgot password',
-            templateUrl: '/app/pages/completeResetPassword/completeResetPassword.html'
-        }
-    }, {
-        url: '/forgotPassword',
-        config: {
-            title: 'Forgot password',
-            templateUrl: '/app/pages/forgotPassword/forgotPassword.html'
-        }
-    }, {
-        url: '/signedOut',
-        config: {
-            title: 'Signed Out',
-            templateUrl: '/app/pages/signedOut/signedOut.html'
-        }
-    }, {
-        url: '/profile',
-        config: {
-            title: 'My Profile',
-            templateUrl: '/app/pages/profile/profile.html'
-        }
-    }, {
-        url: '/completeRegistration',
-        config: {
-            title: 'Complete Registration',
-            templateUrl: '/app/pages/completeRegistration/completeRegistration.html'
+            title: 'Home',
+            templateUrl: '/app/pages/home/home.html'
         }
     }, {
         url: '/home',
@@ -71,40 +41,10 @@ function getRoutes() {
             templateUrl: '/app/pages/home/home.html'
         }
     }, {
-        url: '/search',
+        url: '/tables',
         config: {
-            title: 'Search',
-            templateUrl: '/app/pages/search/search.html'
+            title: 'Tables',
+            templateUrl: '/app/pages/tables/tables.html'
         }
-    }, {
-        url: '/oow',
-        config: {
-            title: 'OOW Answers',
-            templateUrl: '/app/pages/oow/oow.html'
-        }
-    }, {
-        url: '/serviceHealth',
-        config: {
-            title: 'Service Health',
-            templateUrl: '/app/pages/serviceHealth/serviceHealth.html'
-        }
-    }, {
-        url: '/registration',
-        config: {
-            title: 'Create Users',
-            templateUrl: '/app/pages/registration/registration.html'
-        }
-    }, {
-        url: '/userdb',
-        config: {
-            title: 'User Database',
-            templateUrl: '/app/pages/userdb/userdb.html'
-        },
-    }, {
-        url: '/istanbul',
-        config: {
-            title: 'Istanbul',
-            templateUrl: '/app/pages/istanbul/istanbul.html'
-        },
     }];
 }

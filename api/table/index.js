@@ -1,3 +1,4 @@
 module.exports = {
-    list: require('./list')
+    list: require('./list'),
+    describe: require('./describe'),
 };
