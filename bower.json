@@ -21,6 +21,7 @@
     "highcharts": "~4.1.6",
     "moment": "~2.10.3",
     "fontawesome": "~4.3.0",
-    "nprogress": "~0.2.0"
+    "nprogress": "~0.2.0",
+    "angular-ui-grid": "~3.0.5"
   }
 }

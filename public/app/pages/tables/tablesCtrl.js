@@ -31,7 +31,7 @@ function tablesCtrl($scope, $q, tableRepo) {
             bootbox.alert(buildDetails(data), function() {
                 return;
             });
-        })
+        });
     }
 
     function buildDetails(data){

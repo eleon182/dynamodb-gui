@@ -14,5 +14,9 @@ p {
   .tables-tab .table td button {
     margin-left: 15px; }
 
+.tables-tab .read-grid {
+  width: 500px;
+  height: 250px; }
+
 .nav img {
   margin-right: 0px; }

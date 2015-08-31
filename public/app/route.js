@@ -3,6 +3,7 @@ var app = angular.module('main', [
     'ngAnimate', // animations
     'ngRoute', // routing
     'ngSanitize',
+    'ui.grid'
 
 ]);
 
