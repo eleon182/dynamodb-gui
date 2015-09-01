@@ -7,6 +7,7 @@
 
     function abstractRepo($http, $q, $window) {
         // Define the functions and properties to reveal.
+        var cache = {};
         var service = {
             apiCall: apiCall,
         };
@@ -14,20 +15,27 @@
 
         function apiCall(params) {
             var q = $q.defer();
-            if (!params.method) {
-                params.method = 'GET';
+            if (cache[params.url] && params.cache === true) {
+                q.resolve(cache[params.url]);
+            } else {
+
+                if (!params.method) {
+                    params.method = 'GET';
+                }
+                if (!params.headers) {
+                    params.headers = {};
+                }
+                params.headers['Content-Type'] = 'application/json';
+                $http(params).
+                success(function(data, status, headers, config) {
+                    cache[params.url] = data;
+                    q.resolve(data);
+                }).
+                error(function(data, status, headers, config) {
+                    q.reject(data);
+                });
+
             }
-            if (!params.headers) {
-                params.headers = {};
-            }
-            params.headers['Content-Type'] = 'application/json';
-            $http(params).
-            success(function(data, status, headers, config) {
-                q.resolve(data);
-            }).
-            error(function(data, status, headers, config) {
-                q.reject(data);
-            });
             return q.promise;
         }
     }

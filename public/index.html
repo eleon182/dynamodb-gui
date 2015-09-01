@@ -1,3 +1,5 @@
+<!doctype html>
+<html ng-app="main">
 <title>DynTools</title>
 <!-- 3rd party libraries-->
 
@@ -10,7 +12,7 @@
 <script src='libs/angular-animate/angular-animate.min.js'></script>
 <script src='libs/angular-route/angular-route.min.js'></script>
 <script src='libs/angular-sanitize/angular-sanitize.min.js'></script>
-<script src='libs/angular-ui-grid/ui-grid.min.js'></script>
+<script src='libs/angular-touch/angular-touch.min.js'></script>
 
 <!-- Misc -->
 <script src='libs/bootbox/bootbox.js'></script>
@@ -19,16 +21,15 @@
 <script src='libs/highcharts/modules/exporting.js'></script>
 <script src='libs/moment/moment.js'></script>
 <script src='libs/nprogress/nprogress.js'></script>
+<script src='libs/angular-ui-grid/ui-grid.min.js'></script>
 
+<link rel='stylesheet' type='text/css' href='libs/angular-ui-grid/ui-grid.min.css'>
 <link rel='stylesheet' type='text/css' href='libs/bootstrap/dist/css/bootstrap-theme.min.css'>
 <link rel='stylesheet' type='text/css' href='libs/bootstrap/dist/css/bootstrap.min.css'>
 <link rel='stylesheet' type='text/css' href='libs/fontawesome/css/font-awesome.min.css'>
 <link rel='stylesheet' type='text/css' href='libs/nprogress/nprogress.css'>
-<link rel='stylesheet' type='text/css' href='libs/angular-ui-grid/ui-grid.min.css'>
 
-<div ng-app='main'>
     <div ng-view> </div>
-</div>
 
 <link rel='stylesheet' type='text/css' href='main.css'>
 
@@ -52,3 +53,5 @@
 
 <!-- Filters -->
 <script src='app/shared/filter/dateFilter.js'></script>
+
+</html>

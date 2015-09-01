@@ -9,14 +9,8 @@ a {
 p {
   padding-top: 20px; }
 
-.tables-tab .table {
-  margin-top: 15px; }
-  .tables-tab .table td button {
-    margin-left: 15px; }
-
-.tables-tab .read-grid {
-  width: 500px;
-  height: 250px; }
+.home .table-grid {
+  height: 165px; }
 
 .nav img {
   margin-right: 0px; }

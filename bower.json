@@ -13,15 +13,16 @@
   "license": "MIT",
   "dependencies": {
     "angular": "~1.4.0",
-    "bootstrap": "~3.3.4",
     "angular-animate": "~1.4.0",
-    "angular-sanitize": "~1.4.0",
     "angular-route": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "angular-touch": "~1.4.5",
+    "angular-ui-grid": "~3.0.5",
     "bootbox": "~4.4.0",
+    "bootstrap": "~3.3.4",
+    "fontawesome": "~4.3.0",
     "highcharts": "~4.1.6",
     "moment": "~2.10.3",
-    "fontawesome": "~4.3.0",
-    "nprogress": "~0.2.0",
-    "angular-ui-grid": "~3.0.5"
+    "nprogress": "~0.2.0"
   }
 }

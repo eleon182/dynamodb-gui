@@ -1,7 +1,17 @@
-<div ng-controller='homeCtrl as vm' ng-init="init()">
-
-    <div class="navbar">
-        <div ng-include data-src="'app/shared/views/navigation.html'"></div>
+<div class="home" ng-controller='homeCtrl as vm' ng-init="init()">
+    <div class="col-xs-12">
+        <div class="input-group">
+            <span class="input-group-btn">
+                           <button class="btn btn-primary" type="button" ng-click="filterList()">Search</button>
+                                 </span>
+            <input type="text" ng-keypress="filterList()" class="form-control" ng-model="filter">
+        </div>
+        <h4 ng-show="tableGridOptions.data.length===0 && !loading"> No results found </h4>
+        <div ui-grid-cellNav class="table-grid" ui-grid="tableGridOptions"></div>
     </div>
-    home
+    <div class="col-xs-12">
+        <h4 ng-show="tableDataGridOptions.data.length===0 && !loading"> No results found </h4>
+        <h4 ng-show="tableDataGridOptions.data.length>0 && !loading"> Showing {{tableDataGridOptions.data.length}} records. </h4>
+        <div class="data-grid" ui-grid="tableDataGridOptions"></div>
+    </div>
 </div>

@@ -3,8 +3,8 @@ var app = angular.module('main', [
     'ngAnimate', // animations
     'ngRoute', // routing
     'ngSanitize',
-    'ui.grid'
-
+    'ui.grid',
+    'ui.grid.cellNav'
 ]);
 
 app.run(['$q', '$rootScope',

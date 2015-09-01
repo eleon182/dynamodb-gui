@@ -15,7 +15,8 @@
 
         function listTables() {
             var settings = {
-                url: '/api/table/list'
+                url: '/api/table/list',
+                cache: true
             };
             return abstractRepo.apiCall(settings);
         }
