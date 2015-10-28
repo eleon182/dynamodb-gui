@@ -1,16 +1,18 @@
 var app = angular.module('main');
 
 app.controller('tablesCtrl', tablesCtrl);
-tablesCtrl.$inject = ['$scope', '$q', 'tableRepo'];
+tablesCtrl.$inject = ['$scope', '$q', 'tableRepo', '$location', 'favoriteRepo'];
 
-function tablesCtrl($scope, $q, tableRepo) {
+function tablesCtrl($scope, $q, tableRepo, $location, favoriteRepo) {
     $scope.init = function() {
         $scope.tableList = [];
         $scope.loading = true;
         $scope.masterTableList = [];
         $scope.filter = '';
         $scope.filterList = filterList;
+        $scope.saveFavorites= saveFavorites;
         $scope.getDetails = getDetails;
+        $scope.showData= showData;
         NProgress.inc();
 
         tableRepo.listTables().then(function(data) {
@@ -26,12 +28,25 @@ function tablesCtrl($scope, $q, tableRepo) {
             });
     };
 
+    function saveFavorites(table){
+        favoriteRepo.add({table: table}).then(function(){
+            $location.path('home/');
+        },
+        function(){
+
+        });
+    }
+
     function getDetails(table) {
         tableRepo.getDetails(table).then(function(data) {
             bootbox.alert(buildDetails(data), function() {
                 return;
             });
         });
+    }
+
+    function showData(table){
+        $location.path('read/').search({table: table});
     }
 
     function buildDetails(data){

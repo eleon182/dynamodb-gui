@@ -2,17 +2,11 @@
     <div class="navbar">
         <div ng-include data-src="'app/shared/views/navigation.html'"></div>
     </div>
-    <div class="input-group col-xs-5">
-        <span class="input-group-btn">
-                           <button class="btn btn-primary" type="button" ng-click="loadData()">Table</button>
-                                 </span>
-        <input type="text" ng-keypress="($event.which ===13)?loadData():0" class="form-control" ng-model="tableName">
-    </div>
-    <h4 ng-show="tableList.length===0 && !loading">
+    <h4 ng-show="gridOptions.data.length===0 && !loading">
         No results found
     </h4>
-    <h4 ng-show="tableList.length>0 && !loading">
-        Showing {{tableList.length}} records.
+    <h4 ng-show="gridOptions.data.length>0 && !loading">
+        Showing {{gridOptions.data.length}} records.
     </h4>
-    <div class="read-grid" ui-grid="{data: tableList}"></div>
+    <div ng-if="gridOptions.data.length > 0" ui-grid-selection class="read-grid" ui-grid="gridOptions"></div>
 </div>

@@ -8,6 +8,7 @@
                                  </span>
         <input type="text" ng-keypress="filterList()" class="form-control" ng-model="filter">
     </div>
+    <br>
     <h4 ng-show="tableList.length===0 && !loading">
         No results found
     </h4>
@@ -17,7 +18,13 @@
                 Table Name
             </th>
             <th>
-                Details
+                Save to favorites
+            </th>
+            <th>
+                Load table
+            </th>
+            <th>
+                Metadata
             </th>
             <th>
                 Delete
@@ -28,7 +35,15 @@
                 {{table}}
             </td>
             <td>
-                <button class="btn btn-xs btn-info" ng-click="getDetails(table)"><i class="fa fa-user-times"></i>
+                <button class="btn btn-xs btn-primary" ng-click="saveFavorites(table)"><i class="fa fa-user-plus"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-xs btn-success" ng-click="showData(table)"><i class="fa fa-database"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-xs btn-info" ng-click="getDetails(table)"><i class="fa fa-wrench"></i>
                 </button>
             </td>
             <td>

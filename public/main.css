@@ -2,6 +2,13 @@ body {
   padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+.read-grid {
+  height: 700px;
+  width: 2500px; }
+
+.bootbox-json {
+  white-space: pre; }
+
 a {
   color: #00B7FF;
   cursor: pointer; }

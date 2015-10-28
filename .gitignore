@@ -1,4 +1,5 @@
 nohup.out
+favoriteList.json
 npm-debug*
 node_modules
 libs

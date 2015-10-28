@@ -4,6 +4,7 @@ var app = angular.module('main', [
     'ngRoute', // routing
     'ngSanitize',
     'ui.grid',
+    'ui.grid.selection',
     'ui.grid.cellNav'
 ]);
 
@@ -42,7 +43,7 @@ function getRoutes() {
             templateUrl: '/app/pages/home/home.html'
         }
     }, {
-        url: '/read',
+        url: '/read/',
         config: {
             title: 'Read',
             templateUrl: '/app/pages/read/read.html'
