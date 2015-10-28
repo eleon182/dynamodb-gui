@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "start": "DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh",
+    "steve": "AWS_PROFILE=steve DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh",
     "postinstall": "bower install"
   },
   "devDependencies": {
