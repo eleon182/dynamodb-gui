@@ -5,8 +5,8 @@
     <h4 ng-show="gridOptions.data.length===0 && !loading">
         No results found
     </h4>
-    <h4 ng-show="gridOptions.data.length>0 && !loading">
-        Showing {{gridOptions.data.length}} records.
-    </h4>
-    <div ng-if="gridOptions.data.length > 0" ui-grid-selection class="read-grid" ui-grid="gridOptions"></div>
+    <h4 class="col-xs-7" ng-bind="tableName"></h3>
+    <h6 class="col-xs-3">Number of records: {{gridOptions.data.length}}</h6>
+    <button class="col-xs-2 btn btn-primary" ng-click="refreshData()"><i class="fa fa-refresh"></i> Refresh Data </button>
+    <div ng-if="gridOptions.data.length > 0" ui-grid-selection class="read-grid col-xs-12" ui-grid="gridOptions"></div>
 </div>

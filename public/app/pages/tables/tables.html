@@ -18,16 +18,13 @@
                 Table Name
             </th>
             <th>
-                Save to favorites
+                Metadata
             </th>
             <th>
                 Load table
             </th>
             <th>
-                Metadata
-            </th>
-            <th>
-                Delete
+                Save to favorites
             </th>
         </tr>
         <tr ng-repeat="table in tableList" class="tableList">
@@ -35,7 +32,7 @@
                 {{table}}
             </td>
             <td>
-                <button class="btn btn-xs btn-primary" ng-click="saveFavorites(table)"><i class="fa fa-user-plus"></i>
+                <button class="btn btn-xs btn-info" ng-click="getDetails(table)"><i class="fa fa-wrench"></i>
                 </button>
             </td>
             <td>
@@ -43,11 +40,7 @@
                 </button>
             </td>
             <td>
-                <button class="btn btn-xs btn-info" ng-click="getDetails(table)"><i class="fa fa-wrench"></i>
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-xs btn-danger" ng-click="removeUser(user.username, user.env)"><i class="fa fa-user-times"></i>
+                <button class="btn btn-xs btn-primary" ng-click="saveFavorites(table)"><i class="fa fa-user-plus"></i>
                 </button>
             </td>
         </tr>

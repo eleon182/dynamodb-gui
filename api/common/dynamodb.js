@@ -175,6 +175,54 @@ function scan(table) {
     var params = {
         TableName: table
     };
+    var response = [];
+    var recurse = false;
+
+    async.doWhilst( function(callback){
+        db.scan(params, function(err, data){
+            if (err) {
+                deferred.reject(err);
+            } else {
+                dataHelper.removeKey(data.Items);
+                buildArray(response, data.Items);
+
+                if(!data.LastEvaluatedKey){
+                    recurse = false;
+                    callback();
+                }
+                else {
+                    recurse = true;
+                    params.ExclusiveStartKey= data.LastEvaluatedKey;
+                    callback();
+                }
+            }
+        });
+    },
+    function(){
+        return recurse;
+    },
+    function(err){
+        if(err){
+            deferred.reject(err);
+        }
+        else{
+            deferred.resolve(response);
+        }
+    });
+    return deferred.promise;
+}
+
+function buildArray(array, newArray){
+    newArray.forEach(function(val){
+        array.push(val);
+    });
+}
+
+function scan2(table) {
+    var deferred = q.defer();
+    var params = {
+        TableName: table
+    };
     db.scan(params, function(err, data) {
         if (err) {
             deferred.reject(err);

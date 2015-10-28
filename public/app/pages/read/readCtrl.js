@@ -8,19 +8,26 @@ function readCtrl(dynamicDataCompiler, $scope, $q, readRepo, $location, $window)
         loadGridParameters();
         $scope.loading = true;
         $scope.tableName= '';
+        $scope.refreshData = refreshData;
         var params = $location.search();
         if(params.table){
-            loadData(params.table);
+            $scope.tableName= params.table;
+            loadData(params.table, false);
         }
         else {
             $location.path('tables');
         }
     };
 
-    function loadData(table) {
+    function refreshData(){
+        $scope.gridOptions.data = [];
+        loadData($scope.tableName, true);
+    }
+
+    function loadData(table, refresh) {
         NProgress.inc();
 
-        readRepo.scan({table:table}).then(function(data) {
+        readRepo.scan({table:table, refresh: refresh}).then(function(data) {
             //var test = dynamicDataCompiler.tableView(data);
             $scope.loading = false;
             $scope.gridOptions.data = data;
@@ -59,7 +66,7 @@ function readCtrl(dynamicDataCompiler, $scope, $q, readRepo, $location, $window)
                     var output = row.entity;
                     delete output.$$hashKey;
                     var data = '<p style="white-space: pre">' + JSON.stringify(output,null,2)+ '</p>';
-                    $window.open("data:text/html," + encodeURIComponent(data), "jsonData", "");
+                    $window.open("data:text/html," + encodeURIComponent(data), "_blank", "");
                 });
             }
         };

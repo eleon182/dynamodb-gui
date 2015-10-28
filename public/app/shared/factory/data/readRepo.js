@@ -14,7 +14,7 @@
 
         function scan(params) {
             var settings = {
-                url: '/api/read/scan',
+                url: '/api/read/scan?table=' +params.table,
                 method: 'POST',
                 data: params
             };
