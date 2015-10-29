@@ -43,6 +43,12 @@ function getRoutes() {
             templateUrl: '/app/pages/home/home.html'
         }
     }, {
+        url: '/favorite',
+        config: {
+            title: 'Favorite',
+            templateUrl: '/app/pages/favorite/favorite.html'
+        }
+    }, {
         url: '/read/',
         config: {
             title: 'Read',
