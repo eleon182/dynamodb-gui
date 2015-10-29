@@ -1,6 +1,7 @@
 # AWS DynamoDB GUI Client
 GUI Tool used to interact with DynamoDB
-This tool runs inside as a web application inside your browser.
+
+This tool runs as a web application inside your browser.
 
 # Installation
 ```
