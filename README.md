@@ -5,13 +5,13 @@ This tool runs as a web application inside your browser.
 
 # Installation
 ```
-$ npm install dynamodb-gui
+$ npm install -g dynamodb-gui
 ```
 Be sure to have your AWS credentials in the ~/.aws/credentials file
 
 # Usage
 ```
-$ npm start
+$ dynamodb-gui
 ```
 Open a new browser and navigate to http://localhost:4000
 
