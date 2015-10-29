@@ -18,4 +18,14 @@ router.get('/add', function(req, res, next) {
     }
 });
 
+router.get('/delete', function(req, res, next) {
+    if(req.query.table){
+        favorite.deleteItem(req.query.table, function(){
+            res.end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
+});
 module.exports = router;

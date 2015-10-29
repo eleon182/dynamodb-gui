@@ -10,6 +10,7 @@
         // Define the functions and properties to reveal.
         return {
             listFavorites: listFavorites,
+            deleteItem: deleteItem,
             add: add
         };
 
@@ -20,6 +21,12 @@
                 return abstractRepo.apiCall(settings);
         }
 
+        function deleteItem(params) {
+                var settings = {
+                    url: '/api/favorite/delete?table=' + params.table,
+                };
+                return abstractRepo.apiCall(settings);
+        }
         function add(params) {
                 var settings = {
                     url: '/api/favorite/add?table=' + params.table,
