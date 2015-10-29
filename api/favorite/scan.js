@@ -4,11 +4,14 @@ var favoriteList;
 
 module.exports = getList;
 
-function getList(){
+function getList(callback){
     var file = path.join(__dirname, 'favoriteList.json');
-    if(fs.existsSync(file)){
-        return require('./favoriteList');
-    } else {
-        return [];
-    }
+    fs.readFile(file, 'utf8', function (err, data) {
+        if (err) {
+            callback(err, data);
+        }
+        else {
+            callback(null, JSON.parse(data));
+        }
+    });
 }

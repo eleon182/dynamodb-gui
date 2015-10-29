@@ -7,8 +7,31 @@
     </div>
     <br>
     <div class="col-xs-12" >
-        <div ng-repeat="item in favoriteList">
-            <button class="btn btn-info" ng-click="loadTable(item)">{{item}}</button>
-        </div>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Table Name
+            </th>
+            <th>
+                Load table
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+        <tr ng-repeat="table in favoriteList" class="tableList">
+            <td>
+                {{table}}
+            </td>
+            <td>
+                <button class="btn btn-xs btn-info" ng-click="loadTable(table)"><i class="fa fa-wrench"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-xs btn-danger" ng-click="deleteTable(table)"><i class="fa fa-user-plus"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
     </div>
 </div>

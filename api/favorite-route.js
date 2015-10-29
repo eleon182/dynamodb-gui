@@ -4,7 +4,14 @@ var router = express.Router();
 
 var favorite = require('./favorite');
 router.get('/list', function(req, res, next) {
-    res.json(favorite.scan());
+    favorite.scan(function(err, data){
+        if(err){
+            res.json([]);
+        }
+        else {
+            res.json(data);
+        }
+    });
 });
 
 router.get('/add', function(req, res, next) {
@@ -20,7 +27,7 @@ router.get('/add', function(req, res, next) {
 
 router.get('/delete', function(req, res, next) {
     if(req.query.table){
-        favorite.deleteItem(req.query.table, function(){
+        favorite.deleteTable(req.query.table, function(){
             res.end();
         });
     }

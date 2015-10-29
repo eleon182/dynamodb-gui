@@ -7,17 +7,16 @@ module.exports = deleteItem;
 
 function deleteItem(table, callback){
     var file = path.join(__dirname, 'favoriteList.json');
-    fs.exists(file, function (exists){
-        if(exists){
-            favoriteList = require('./favoriteList');
-
-            fs.writeFile(file, JSON.stringify(removeItem(table, favoriteList)), function(err) {
-                return callback();
-            });
-        }
-        else {
+    fs.readFile(file, 'utf8', function (err, data) {
+        if (err) {
             return callback();
         }
+        else {
+            favoriteList = removeItem(table, JSON.parse(data));
+        }
+        fs.writeFile(file, JSON.stringify(favoriteList), function(err) {
+            callback();
+        });
     });
 }
 

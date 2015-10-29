@@ -7,12 +7,12 @@ module.exports = add;
 
 function add(table, callback){
     var file = path.join(__dirname, 'favoriteList.json');
-    fs.exists(file, function (exists){
-        if(exists){
-            favoriteList = require('./favoriteList');
+    fs.readFile(file, 'utf8', function (err, data) {
+        if (err) {
+            favoriteList = [];
         }
         else {
-            favoriteList = [];
+            favoriteList = JSON.parse(data);
         }
         favoriteList.push(table);
         fs.writeFile(file, JSON.stringify(favoriteList), function(err) {
