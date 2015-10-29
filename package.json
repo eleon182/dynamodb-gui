@@ -3,6 +3,9 @@
   "version": "1.0.8",
   "description": "AWS Dynamodb GUI",
   "main": "app.js",
+  "bin": {
+    "dynamodb-gui": "./bin/dynamodb-gui"
+  },
   "author": "Esteban Leon",
   "scripts": {
     "start": "node server.js",
