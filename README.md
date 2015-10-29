@@ -1,15 +1,18 @@
 # AWS DynamoDB GUI Client
 GUI Tool used to interact with DynamoDB
+This tool runs inside as a web application inside your browser.
 
 # Installation
 ```
 $ npm install dynamodb-gui
 ```
+Be sure to have your AWS credentials in the ~/.aws/credentials file
 
 # Usage
 ```
 $ npm start
 ```
+Open a new browser and navigate to http://localhost:4000
 
 # Features
 - List all dynamodb tables under your account
@@ -21,6 +24,9 @@ $ npm start
 - Full back end caching for all data retrieved from tables for subsequent access
 - Cache busting enabled with a simple refresh button on the data view.
 
-# Note
+# Notes
 - Currently, no editing is possible. (future versions to come)
+
+# GitHub
+https://github.com/eleon182/dynamodb-gui
 
