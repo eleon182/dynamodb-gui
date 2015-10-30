@@ -30,7 +30,7 @@ function tablesCtrl($scope, $q, tableRepo, $location, favoriteRepo) {
 
     function saveFavorites(table){
         favoriteRepo.add({table: table}).then(function(){
-            $location.path('home/');
+            $location.path('favorite/');
         },
         function(){
 
