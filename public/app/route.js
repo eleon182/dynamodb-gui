@@ -49,12 +49,19 @@ function getRoutes() {
             templateUrl: '/app/pages/favorite/favorite.html'
         }
     }, {
+        url: '/configtable',
+        config: {
+            title: 'Config Tables',
+            templateUrl: '/app/pages/configTable/configTable.html'
+        }
+    }, {
         url: '/read/',
         config: {
             title: 'Read',
             templateUrl: '/app/pages/read/read.html'
         }
-    }, {
+    },
+    {
         url: '/tables',
         config: {
             title: 'Tables',

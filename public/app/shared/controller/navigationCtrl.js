@@ -1,9 +1,9 @@
 var app = angular.module('main');
 
 app.controller('navigationCtrl', navigationCtrl);
-navigationCtrl.$inject = ['$scope'];
+navigationCtrl.$inject = ['$scope', 'configTableRepo'];
 
-function navigationCtrl($scope) {
+function navigationCtrl($scope, configTableRepo) {
 
     $scope.init = function() {
     };

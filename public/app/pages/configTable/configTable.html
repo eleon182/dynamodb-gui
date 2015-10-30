@@ -1,0 +1,45 @@
+<div class="configTable" ng-controller='configTableCtrl as vm' ng-init="init()">
+    <div class="navbar">
+        <div ng-include data-src="'app/shared/views/navigation.html'"></div>
+    </div>
+    <div class="col-xs-12">
+        <h2 class="">Config Tables</h2>
+    </div>
+    <br>
+    <div class="col-xs-12" >
+        <div class="input-group environment-select col-xs-3">
+            <select ng-change="loadEnv(env)" ng-model="env" class="form-control input-group-addon">
+                <option value="dev">Develop</option>
+                <option value="int">Integration</option>
+                <option value="qa">QA</option>
+            </select>
+        </div>
+        <div class="input-group environment-select col-xs-3">
+            <select class="form-control input-group-addon" ng-model="selectedService" ng-options="item.service as item.service for item in serviceList"></select>
+        </div>
+    </div>
+    <div class="col-xs-12" >
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Service
+            </th>
+            <th>
+                Table Name
+            </th>
+        </tr>
+        <tr ng-repeat="table in configTableList" class="tableList">
+            <td ng-show="table.service === selectedService || selectedService ==='All'">
+                {{table.service}}
+            </td>
+            <td ng-show="table.service === selectedService || selectedService ==='All'">
+                    <div ng-repeat="item in table.data">
+                        <button ng-click="loadTable(item)">
+                            {{item}}
+                        </button>
+                    </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
