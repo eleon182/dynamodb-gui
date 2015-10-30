@@ -3,20 +3,21 @@
         <div ng-include data-src="'app/shared/views/navigation.html'"></div>
     </div>
     <div class="col-xs-12">
-        <h2 class="">Config Tables</h2>
+        <h2 class="">Configuration Tables</h2>
     </div>
-    <br>
     <div class="col-xs-12" >
-        <div class="input-group environment-select col-xs-3">
-            <select ng-change="loadEnv(env)" ng-model="env" class="form-control input-group-addon">
+        <span class="input-group environment-select col-xs-3">
+            <span class="input-group-addon">Environment</span>
+            <select ng-change="loadEnv(env)" ng-model="env" class="form-control ">
                 <option value="dev">Develop</option>
                 <option value="int">Integration</option>
                 <option value="qa">QA</option>
             </select>
-        </div>
-        <div class="input-group environment-select col-xs-3">
-            <select class="form-control input-group-addon" ng-model="selectedService" ng-options="item.service as item.service for item in serviceList"></select>
-        </div>
+        </span>
+        <span class="input-group environment-select col-xs-3">
+            <span class="input-group-addon">Service</span>
+            <select class="form-control xinput-group-addon" ng-model="selectedService" ng-options="item.service as item.service for item in serviceList"></select>
+        </span>
     </div>
     <div class="col-xs-12" >
     <table class="table table-striped">
