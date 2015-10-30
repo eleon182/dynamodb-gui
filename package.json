@@ -10,8 +10,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh",
-    "steve": "AWS_PROFILE=steve DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh",
-    "postinstall": "bower install"
+    "steve": "AWS_PROFILE=steve DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh"
   },
   "devDependencies": {
     "nodemon": "^1.3.7",
