@@ -1,14 +1,15 @@
 var app = angular.module('main');
 
 app.controller('readCtrl', readCtrl);
-readCtrl.$inject = ['dynamicDataCompiler', '$scope', '$q', 'readRepo', '$location', '$window'];
+readCtrl.$inject = ['dynamicDataCompiler', '$scope', '$q', 'readRepo', '$location', '$window', 'favoriteRepo'];
 
-function readCtrl(dynamicDataCompiler, $scope, $q, readRepo, $location, $window) {
+function readCtrl(dynamicDataCompiler, $scope, $q, readRepo, $location, $window, favoriteRepo) {
     $scope.init = function() {
         loadGridParameters();
         $scope.loading = true;
         $scope.tableName= '';
         $scope.refreshData = refreshData;
+        $scope.saveFavorite= saveFavorite;
         var params = $location.search();
         if(params.table){
             $scope.tableName= params.table;
@@ -18,6 +19,15 @@ function readCtrl(dynamicDataCompiler, $scope, $q, readRepo, $location, $window)
             $location.path('tables');
         }
     };
+
+    function saveFavorite(){
+        favoriteRepo.add({table: $scope.tableName}).then(function(){
+            $location.path('favorite/');
+        },
+        function(){
+
+        });
+    }
 
     function refreshData(){
         $scope.gridOptions.data = [];
