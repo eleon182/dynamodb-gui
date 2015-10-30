@@ -1,6 +1,6 @@
 nohup.out
 favoriteList.json
-**/*.json
+api/json/*.json
 npm-debug*
 node_modules
 libs
