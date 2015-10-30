@@ -4,7 +4,7 @@
   "description": "AWS Dynamodb GUI",
   "main": "app.js",
   "bin": {
-    "dynamodb-gui": "./bin/dynamodb-gui"
+    "dynamodb-gui": "./dynamodb-gui"
   },
   "author": "Esteban Leon",
   "scripts": {
