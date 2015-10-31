@@ -19,7 +19,7 @@
                 Delete
             </th>
         </tr>
-        <tr ng-repeat="table in favoriteList" class="tableList">
+        <tr ng-repeat="table in favoriteList track by $index" class="tableList">
             <td>
                 {{table}}
             </td>

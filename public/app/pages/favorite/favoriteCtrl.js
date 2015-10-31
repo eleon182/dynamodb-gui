@@ -24,6 +24,12 @@ function favoriteCtrl($timeout, $scope, $q, favoriteRepo, readRepo, $location) {
 
     }
 
+    function uniq(a) {
+        return a.sort().filter(function(item, pos, ary) {
+            return !pos || item != ary[pos - 1];
+        });
+    }
+
     function deleteTable(table){
         NProgress.inc();
         favoriteRepo.deleteItem({table:table}).then(function(){
