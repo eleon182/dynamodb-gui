@@ -1,6 +1,6 @@
 {
   "name": "dynamodb-gui",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "AWS Dynamodb GUI",
   "main": "app.js",
   "bin": {
