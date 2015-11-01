@@ -9,6 +9,16 @@ $ npm install -g dynamodb-gui
 ```
 Be sure to have your AWS credentials in the ~/.aws/credentials file
 
+For example:
+```
+[default]
+aws_access_key_id = AKID
+aws_secret_access_key = SECRET
+[steve]
+aws_access_key_id = AKID
+aws_secret_access_key = SECRET
+```
+
 # Usage
 ```
 $ dynamodb-gui
