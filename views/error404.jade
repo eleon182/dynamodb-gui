@@ -1,0 +1,34 @@
+html
+  body
+    script(src='libs/jquery/dist/jquery.min.js')
+    script(src='libs/bootstrap/dist/js/bootstrap.min.js')
+    link(rel='stylesheet', type='text/css', href='libs/bootstrap/dist/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', type='text/css', href='libs/bootstrap/dist/css/bootstrap.min.css')
+    .container
+      .row
+        .col-md-12
+          .error-template
+            img(src='assets/dancers.png')
+            h1  Oops!
+            h2  404 Not Found
+            .error-details
+              | Sorry, an error has occured, Requested page not found!
+            .error-actions
+              a.btn.btn-primary.btn-lg(href='/')
+                span.glyphicon.glyphicon-home
+                |                         Take Me Home
+    style.
+      body {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yOS8xMiKqq3kAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHklEQVRIib2Vyw6EIAxFW5idr///Qx9sfG3pLEyJ3tAwi5EmBqRo7vHawiEEERHS6x7MTMxMVv6+z3tPMUYSkfTM/R0fEaG2bbMv+Gc4nZzn+dN4HAcREa3r+hi3bcuu68jLskhVIlW073tWaYlQ9+F9IpqmSfq+fwskhdO/AwmUTJXrOuaRQNeRkOd5lq7rXmS5InmERKoER/QMvUAPlZDHcZRhGN4CSeGY+aHMqgcks5RrHv/eeh455x5KrMq2yHQdibDO6ncG/KZWL7M8xDyS1/MIO0NJqdULLS81X6/X6aR0nqBSJcPeZnlZrzN477NKURn2Nus8sjzmEII0TfMiyxUuxphVWjpJkbx0btUnshRihVv70Bv8ItXq6Asoi/ZiCbU6YgAAAABJRU5ErkJggg==);
+      }
+      .error-template {
+      padding: 40px 15px;
+      text-align: center;
+      }
+      .error-actions {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      }
+      .error-actions .btn {
+      margin-right: 10px;
+      }

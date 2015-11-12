@@ -11,11 +11,11 @@ var app = express();
 var api = require('./api');
 
 console.log('========================================');
-console.log('RUNNING SERVER');
+console.log('RUNNING SERVER ON PORT 4000: Goto http://localhost:4000');
 console.log('========================================');
 
 // view engine setup
-app.set('views', path.join(__dirname, ''));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use('/api', function(req, res, next) {
@@ -43,6 +43,9 @@ app.use('/api/version', function(req, res) {
     });
 });
 
+app.get('/views/:viewname', function(req,res){
+    res.render(req.params.viewname);
+});
 
 // Static files served
 app.use(express.static(path.join(__dirname, 'public')));

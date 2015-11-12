@@ -1,0 +1,47 @@
+doctype html
+html(ng-app='main')
+  title DynTools
+  // 3rd party libraries
+  // Bootstrap
+  script(src='libs/jquery/dist/jquery.min.js')
+  script(src='libs/bootstrap/dist/js/bootstrap.min.js')
+  // Angular
+  script(src='libs/angular/angular.min.js')
+  script(src='libs/angular-animate/angular-animate.min.js')
+  script(src='libs/angular-route/angular-route.min.js')
+  script(src='libs/angular-sanitize/angular-sanitize.min.js')
+  script(src='libs/angular-touch/angular-touch.min.js')
+  // Misc
+  script(src='libs/bootbox/bootbox.js')
+  script(src='libs/highcharts/highcharts.js')
+  script(src='libs/highcharts/highcharts-3d.js')
+  script(src='libs/highcharts/modules/exporting.js')
+  script(src='libs/moment/moment.js')
+  script(src='libs/nprogress/nprogress.js')
+  script(src='libs/angular-ui-grid/ui-grid.min.js')
+  link(rel='stylesheet', type='text/css', href='libs/angular-ui-grid/ui-grid.min.css')
+  link(rel='stylesheet', type='text/css', href='libs/bootstrap/dist/css/bootstrap-theme.min.css')
+  link(rel='stylesheet', type='text/css', href='libs/bootstrap/dist/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='libs/fontawesome/css/font-awesome.min.css')
+  link(rel='stylesheet', type='text/css', href='libs/nprogress/nprogress.css')
+  div(ng-view='')
+  link(rel='stylesheet', type='text/css', href='main.css')
+  script(src='app/route.js')
+  // Private Dependencies
+  // Controllers
+  script(src='app/pages/favorite/favoriteCtrl.js')
+  script(src='app/pages/home/homeCtrl.js')
+  script(src='app/pages/configTable/configTableCtrl.js')
+  script(src='app/pages/tables/tablesCtrl.js')
+  script(src='app/pages/read/readCtrl.js')
+  script(src='app/shared/controller/navigationCtrl.js')
+  // Factories
+  script(src='app/shared/factory/dynamicDataCompiler.js')
+  // Repositories
+  script(src='app/shared/factory/data/abstractRepo.js')
+  script(src='app/shared/factory/data/tableRepo.js')
+  script(src='app/shared/factory/data/configTableRepo.js')
+  script(src='app/shared/factory/data/favoriteRepo.js')
+  script(src='app/shared/factory/data/readRepo.js')
+  // Filters
+  script(src='app/shared/filter/dateFilter.js')
