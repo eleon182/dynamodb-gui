@@ -8,35 +8,47 @@ function configTableCtrl($timeout, $scope, $q, configTableRepo, readRepo, $locat
     $scope.init = function() {
         $scope.env = 'dev';
         $scope.loadTable = loadTable;
-        $scope.loadEnv= loadEnv;
+        $scope.loadEnv = loadEnv;
         $scope.configTableList = [];
         $scope.masterData = [];
         $scope.serviceList = [];
         loadData();
     };
 
-    function loadData(){
+    function loadData() {
         NProgress.inc();
         configTableRepo.list().then(function(data) {
-            $scope.masterData = data;
-            loadEnv($scope.env);
-            NProgress.done();
-        },
-        function(err) {
-            NProgress.done();
-        });
+                $scope.masterData = data;
+                loadEnv($scope.env);
+                NProgress.done();
+            },
+            function(err) {
+                NProgress.done();
+            });
     }
 
-    function loadEnv(env){
+    function loadEnv(env) {
         $scope.configTableList = $scope.masterData[env];
+        $scope.configTableList.sort(function(a, b) {
+            if(a.service > b.service){
+                return 1;
+            }
+            else{
+                return -1;
+            }
+        });
         $scope.serviceList = [];
-        $scope.serviceList.push({service:"All"});
+        $scope.serviceList.push({
+            service: "All"
+        });
         $scope.serviceList = $scope.serviceList.concat($scope.configTableList);
         $scope.selectedService = "All";
     }
 
-    function loadTable(table){
-        $location.path('read/').search({table: table});
+    function loadTable(table) {
+        $location.path('read/').search({
+            table: table
+        });
     }
 
 }

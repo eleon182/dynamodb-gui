@@ -8,9 +8,9 @@ function get(mainCallback){
         function(callback){
             scan(config.dev, callback);
         },
-        function(callback){
-            scan(config.qa, callback);
-        },
+        //function(callback){
+            //scan(config.qa, callback);
+        //},
         function(callback){
             scan(config.int, callback);
         },
@@ -22,8 +22,8 @@ function get(mainCallback){
         else {
             var response = {
                 dev: compileData(results[0]),
-                qa: compileData(results[1]),
-                int: compileData(results[2])
+                //qa: compileData(results[1]),
+                int: compileData(results[1])
             };
             mainCallback(null, response);
         }
