@@ -9,8 +9,8 @@
   "author": "Esteban Leon",
   "scripts": {
     "start": "node server.js",
-    "dev": "DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh",
-    "steve": "AWS_PROFILE=steve DEBUG=main nodemon -e js,scss --exec sh bin/execute.sh",
+    "dev": "DEBUG=main nodemon -e jade,js,scss --exec sh bin/execute.sh",
+    "steve": "AWS_PROFILE=steve DEBUG=main nodemon -e jade,js,scss --exec sh bin/execute.sh",
     "postinstall": "bower install"
   },
   "devDependencies": {
@@ -34,6 +34,7 @@
     "lodash": "^3.8.0",
     "morgan": "~1.5.1",
     "node-uuid": "^1.4.3",
+    "open": "0.0.5",
     "q": "^1.4.1",
     "serve-favicon": "~2.2.0"
   }

@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug')('main');
+var open = require('open');
 var app = express();
 
 var api = require('./api');
@@ -13,6 +14,7 @@ var api = require('./api');
 console.log('========================================');
 console.log('RUNNING SERVER ON PORT 4000: Goto http://localhost:4000');
 console.log('========================================');
+open('http://localhost:4000');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
