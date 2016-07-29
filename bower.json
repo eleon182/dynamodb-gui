@@ -1,11 +1,10 @@
 {
-  "name": "registration-tools",
+  "name": "tools",
   "version": "1.0.0",
-  "homepage": "https://github.com/eleon182/registration-tools",
   "authors": [
     "Esteban Leon"
   ],
-  "description": "Corvette registration-tools",
+  "description": "Dyanmodb tools",
   "moduleType": [
     "globals",
     "node"
