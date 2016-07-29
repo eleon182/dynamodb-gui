@@ -9,8 +9,6 @@ var debug = require('debug')('main');
 var open = require('open');
 var app = express();
 
-var api = require('./api');
-
 console.log('========================================');
 console.log('RUNNING SERVER ON PORT 4000: Goto http://localhost:4000');
 console.log('========================================');
@@ -19,32 +17,11 @@ open('http://localhost:4000');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-app.use('/api', function(req, res, next) {
-    debug('server.js', req.url, req.method);
-    next();
-});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use('/api/table', api.table);
-app.use('/api/configtable', api.configTable);
-app.use('/api/favorite', api.favorite);
-app.use('/api/read', api.read);
-app.use('/api/version', function(req, res) {
-    exec('git log --stat -1', function(error, stdout, stderr) {
-        if (error) {
-            res.status(404);
-        } else {
-            res.status(200);
-        }
-
-        res.send('<div style="white-space: pre">' + stdout + '</div>');
-    });
-});
-
 app.get('/views/:viewname', function(req,res){
     res.render(req.params.viewname);
 });
