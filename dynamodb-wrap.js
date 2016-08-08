@@ -1,0 +1,349 @@
+var AWS = require('aws-sdk');
+var async = require('async');
+var lo = require('lodash');
+var q = require('q');
+
+AWS.config.update({
+    region: 'us-west-2',
+});
+
+var dataHelper = require('./helpers/dataHelper');
+
+var db = new AWS.DynamoDB();
+
+var scanTimeLimitDefault = 10000;
+
+module.exports = {
+    describeTable: describeTable,
+    initialize: initialize,
+    scan: scan,
+    getItem: getItem,
+    putItem: putItem,
+    deleteItem: deleteItem,
+    query: query,
+    updateItem: updateItem
+};
+
+/**
+ * initialize dynamodb access
+ *
+ * @param {string} [region="us-west-2"] sets the region of your dynamodb table
+ * @param {function} callback callback function to call when initialization is done (not necessary, this is synchronous)
+ */
+function initialize(params, callback) {
+
+    AWS.config.update({
+        region: params.region || 'us-west-2'
+    });
+
+    db = new AWS.DynamoDB();
+
+    if (callback) {
+        callback();
+    }
+}
+
+/**
+ * describeTable - get table metadata
+ *
+ * @param {string} table table name
+ * @param {function} callback callback function
+ */
+function describeTable(params, callback) {
+    var settings = {
+        TableName: params.table
+    };
+
+    db.describeTable(settings, callback);
+}
+
+/**
+ * updateItem - update a single item
+ *
+ * @param {string} table table name
+ * @param {object} key primary key to table entry to update
+ * @param {object} expression update expression
+ * @param {object} values update values
+ * @param {function} callback callback callback function
+ *
+ * @example
+ *  var table = 'table-name';
+ var key = {
+        username: {
+            'S': params.username
+        }
+    };
+ var expression = "set password = :val1";
+ var values = {
+        ':val1': {
+            'S': bcrypt.hashSync(params.newPassword, 8)
+        },
+    };
+ var params = {
+      table: table,
+      key: key,
+      expression: expression,
+      values: values
+      };
+ db.updateItem(params, function(err, results(){});
+ */
+function updateItem(params, callback) {
+    if (!params.key || !params.expression || !params.values || !params.table) {
+        return callback('Required parameters: key, expression, values, table');
+    }
+    var settings = {
+        TableName: params.table,
+        Key: params.key,
+        UpdateExpression: params.expression,
+        ExpressionAttributeValues: params.values
+    };
+
+    db.updateItem(settings, function(err, data) {
+        if (err) {
+            callback(err, data);
+        } else {
+            callback(null, data);
+        }
+    });
+}
+
+/**
+ * query - query items from the table.
+ *
+ * @param {string} table table name~
+ * @param {object} key keys to query
+ * @param {object} [index=null] index to use
+ * @param {function} callback callback callback function
+ *
+ * @example
+ *  var table = 'table-name';
+ var key = {
+       customerId: {
+          ComparisonOperator: 'EQ',
+          AttributeValueList: [{
+               S: '1455-15412'
+          }]
+       }
+    }
+ db.query(params, function(err, results(){});
+ */
+function query(params, callback) {
+    if (!params.table || !params.key) {
+        return callback('Required parameters: table, key');
+    }
+
+    var settings = {
+        TableName: params.table,
+        KeyConditions: params.key
+    };
+    if (params.index) {
+        settings.IndexName = params.index;
+    }
+    db.query(settings, function(err, data) {
+        if (err) {
+            callback(err, data);
+        } else {
+            if (!params.raw) {
+                dataHelper.removeKey(data.Items);
+            }
+            callback(null, data.Items);
+        }
+    });
+}
+
+/**
+ * deleteItem - delete an item from the table
+ *
+ * @param {string} table table name
+ * @param {object} key primary key to table entry to update
+ * @param {function} callback callback callback function
+ *
+ * @example
+ *  var table = 'table-name';
+ var key = {
+        username: {
+            'S': 'steve'
+        }
+    };
+ db.deleteItem(params, function(err, results(){});
+ */
+function deleteItem(params, callback) {
+    if (!params.table || !params.key) {
+        return callback('Required parameters: table, key');
+    }
+    var settings = {
+        TableName: params.table,
+        Key: params.key
+    };
+
+    db.deleteItem(settings, function(err, data) {
+        if (err) {
+            callback(err, data);
+        } else {
+            callback(null, data);
+        }
+    });
+}
+
+/**
+ * getItem - get a single item from the table
+ *
+ * @param {string} table table name
+ * @param {object} key primary key to table entry to retrieve
+ * @param {function} callback callback callback function
+ *
+ * @example
+ *  var table = 'table-name';
+ var key = {
+        username: {
+            'S': 'steve'
+        }
+    };
+ db.getItem(params, function(err, results(){});
+ */
+function getItem(params, callback) {
+    if (!params.table || !params.key) {
+        callback('Required parameters: table, key');
+    }
+    var settings = {
+        TableName: params.table,
+        Key: params.key
+    };
+
+    db.getItem(settings, function(err, data) {
+        if (err) {
+            callback(err, data);
+        } else {
+            try {
+                if (!params.raw) {
+                    dataHelper.removeKey(data.Item);
+                }
+                callback(null, data.Item);
+            } catch (e) {
+                callback(e, data);
+            }
+        }
+    });
+}
+
+/**
+ * scan - scan table
+ *
+ * @param {string} table table name
+ * @param {boolean} [raw=false] if true, prevents removing the data types from the response
+ * @param {number} [sleep=false] sets a sleep timer between pagination calls
+ * @param {number} [scanTimeLimit=false] sets the number of max ms that is allowed for the entire scan to finish. (default: 10000, set to 0 for none)
+ * @param {function} callback callback callback function
+ *
+ * @example
+ *  var table = 'table-name';
+ db.scan({table: table}, function(err, results(){});
+ */
+function scan(params, mainCallback) {
+    var scanTimeLimit = params.scanTimeLimit || scanTimeLimitDefault;
+    var start = new Date().getTime();
+    if (!params.table) {
+        return mainCallback('Required parameters: table');
+    }
+    var settings = {
+        TableName: params.table
+    };
+    if (params.limit) {
+        settings.Limit = params.limit;
+    }
+    var response = [];
+    var recurse = false;
+
+    async.doWhilst(function(callback) {
+            db.scan(settings, function(err, data) {
+                if (err) {
+                    recurse = false;
+                    callback({
+                        error: err,
+                        maxReached: response.length > 0
+                    });
+                } else {
+                    if (!params.raw) {
+                        dataHelper.removeKey(data.Items);
+                    }
+                    //buildArray(response, data.Items);
+                    response = lo.union(response, data.Items);
+
+                    if (!data.LastEvaluatedKey) {
+                        recurse = false;
+                        callback();
+                    } else {
+                        if (scanTimeLimit === 0 || new Date().getTime() - start < scanTimeLimit) {
+                            recurse = true;
+                        } else {
+                            recurse = false;
+                            return callback({
+                                error: 'Max pagination reached',
+                                maxReached: true
+                            });
+                        }
+                        settings.ExclusiveStartKey = data.LastEvaluatedKey;
+                        if (params.sleep) {
+                            setTimeout(function() {
+                                callback();
+                            }, params.sleep);
+                        } else {
+                            callback();
+                        }
+                    }
+                }
+            });
+        },
+        function() {
+            return recurse;
+        },
+        function(err) {
+            mainCallback(err, response);
+        });
+}
+
+function buildArray(array, newArray) {
+    newArray.forEach(function(val) {
+        array.push(val);
+    });
+}
+
+/**
+ * putItem - inserts an item into the table
+ *
+ * @param {string} table table name
+ * @param {object} key item to insert
+ * @param {function} callback callback callback function
+ *
+ * @example
+ var table = 'table-name';
+ var item = {
+        username: {
+            'S': data.username
+        },
+        createDate: {
+            'S': new Date().toString()
+        },
+    };
+ var params = {
+        table: table,
+        key: item
+    };
+ db.putItem(params, function(err,results){});
+ */
+function putItem(params, callback) {
+    if (!params.table || !params.item) {
+        return callback('Required parameters: table, item');
+    }
+    db.putItem({
+        TableName: params.table,
+        Item: params.item
+    }, function(err, data) {
+        if (err) {
+            callback(err, data);
+        } else {
+            callback(null, data);
+        }
+
+    });
+}
